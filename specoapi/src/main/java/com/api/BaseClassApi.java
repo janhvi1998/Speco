@@ -47,7 +47,7 @@ public class BaseClassApi
 	        if (doctor == null) {
 	        	 return Response
 	   			      .status(Response.Status.NOT_FOUND)
-	   			      .entity("Invalid doctor ID supplied"+doctor)
+	   			      .entity("Invalid doctor ID supplied")
 	   			      .build();
 	        } else {
 	            return Response.ok()

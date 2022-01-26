@@ -18,7 +18,7 @@ public class DataService
 	        String newId = Integer.toString(doctor.size() + 1);
 	        doctors.setId(newId);
 	        doctor.add(doctors);
-	        return "Data added successfully"+doctor;
+	        return "Data added successfully need to test";
 	 }
 	 public String doctor(
 	    		String name,String registrationno,String practice, String institutename,String experience,String qualificationname,String phoneno,String procurementyear,
