@@ -35,7 +35,7 @@ public class BaseClassApi
 	 @GET
 	 @Path("doctor")
      @Produces(MediaType.APPLICATION_JSON)
-     public List<Doctors> getdoctors() {
+     public CheckDoctors getdoctors() {
          return dataService.getdoctors();
      }
      
@@ -43,11 +43,11 @@ public class BaseClassApi
 	 @Path("doctor/{doctorid}")
 	 @Produces(MediaType.APPLICATION_JSON)
 	 public Response getdoctor(@PathParam("doctorid") String id) {
-	        Doctors doctor = dataService.getdoctorbyid(id);
+	        CheckDoctors doctor = dataService.getdoctorbyid(id);
 	        if (doctor == null) {
 	        	 return Response
 	   			      .status(Response.Status.NOT_FOUND)
-	   			      .entity("Invalid doctor ID supplied")
+	   			      .entity("Not Found")
 	   			      .build();
 	        } else {
 	            return Response.ok()
@@ -59,17 +59,47 @@ public class BaseClassApi
 	 @GET
 	 @Path("onboarding")
 	 @Produces(MediaType.APPLICATION_JSON)
-	 public Response getonboardingesponse() {
+	 public CheckOnboarding getonboardingesponse() {
+		 
+		 	CheckOnboarding onboard=new CheckOnboarding();
 			List<Onboarding> onboarding = new ArrayList<Onboarding>();
-			onboarding.add(new Onboarding("Visual EMR  previous data","Get access to patient EMR from their previous consultation","preview.jpg"));
-			onboarding.add(new Onboarding("Manage appointments easily","smart assistants prioritize appointments,facilitate consultation and schedule followups","images.png"));
-			onboarding.add(new Onboarding("Seamless Data migration","Access via app and web","preview.jpg"));
-			onboarding.add(new Onboarding("Automate invoice and billing","Leave your operation to us","image3.jpg"));
 			
-			 return Response
-				      .status(Response.Status.OK)
-				      .entity(onboarding)
-				      .build();
+			Onboarding obj=null;
+			obj=new Onboarding();
+			obj.setTitle("Visual EMR  previous data");
+			obj.setDescription("Get access to patient EMR from their previous consultation");
+			obj.setImage("preview.jpg");
+			
+			Onboarding obj1=null;
+			obj1=new Onboarding();
+			obj1.setTitle("Manage appointments easily");
+			obj1.setDescription("smart assistants prioritize appointments,facilitate consultation and schedule followups");
+			obj1.setImage("images.png");
+			
+			Onboarding obj2=null;
+			obj2=new Onboarding();
+			obj2.setTitle("Seamless Data migration");
+			obj2.setDescription("Access via app and web");
+			obj2.setImage("preview.jpg");
+			
+			Onboarding obj3=null;
+			obj3=new Onboarding();
+			obj3.setTitle("Automate invoice and billing");
+			obj3.setDescription("Leave your operation to us");
+			obj3.setImage("image3.jpg");
+			
+			onboarding.add(obj);
+			onboarding.add(obj1);
+			onboarding.add(obj2);
+			onboarding.add(obj3);
+			
+			onboard.setMessage("Success");
+			onboard.setStatus("200");
+			onboard.setData(onboarding);
+			
+			return onboard;
+			
+			 
 		}
 	 
 	    @POST
@@ -84,7 +114,7 @@ public class BaseClassApi
 	     @GET
 		 @Path("clinic")
 	     @Produces(MediaType.APPLICATION_JSON)
-	     public List<Clinic> getclinics() {
+	     public CheckClinic getclinics() {
 	         return dataService.getcliniclist();
 	     }
 	     
@@ -92,7 +122,7 @@ public class BaseClassApi
 		 @Path("clinic/{clinicid}")
 		 @Produces(MediaType.APPLICATION_JSON)
 		 public Response getclinicbyid(@PathParam("clinicid") String id) {
-		        Clinic clinic = dataService.getClinicById(id);
+		        CheckClinic clinic = dataService.getClinicById(id);
 		        if (clinic == null) {
 		            return Response.status(Response.Status.NOT_FOUND)
 		                      .build();
@@ -108,7 +138,7 @@ public class BaseClassApi
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
 	     public Response getCustomer(@PathParam("clinicid") String id,Clinic cs) {
-	         Clinic cur = dataService.getClinicById(id);
+	         CheckClinic cur = dataService.getClinicById(id);
 	         if (cur == null) {
 	             return Response.status(Response.Status.NOT_FOUND)
 	                       .build();
@@ -124,7 +154,7 @@ public class BaseClassApi
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
 	     public Response getdetail(@PathParam("clinicid") String id) {
-	         Clinic del = dataService.getdeleteclinic(id);
+	         CheckClinic del = dataService.getdeleteclinic(id);
 	         if (del == null) {
 	             return Response.status(Response.Status.NOT_FOUND)
 	                       .build();
@@ -139,16 +169,38 @@ public class BaseClassApi
 	     @GET
 		 @Path("paymentplans")
 		 @Produces(MediaType.APPLICATION_JSON)
-		 public Response getpaymentplansesponse() {
-				List<Paymentplans> plans = new ArrayList<Paymentplans>();
-				plans.add(new Paymentplans("image2.jpg","Basic plan rs999/month","your plan includes:1.advanced Calendar-manages appointment"+ "2.professional billing"+ "3.Unlimited appointment confirmation,reminders and followups"+ "4.share records with patients","Start your free 30day trial now"));
-				plans.add(new Paymentplans("image2.jpg","Business plan rs1499/month","your plan includes:1.advanced Calendar-manages appointment"+"2.professional billing"+"3.Unlimited appointment confirmation,reminders and followups"+"4.share records with patients"+"5.supports 13local languages"+"6.patient education tips and videos"+"24/7 helpdesk support","Start your free 30day trial now"));
+		 public CheckPaymentplans getpaymentplansesponse() 
+	     {
+	    	CheckPaymentplans plans=new CheckPaymentplans();
+	    	List<Paymentplans> plan=new ArrayList<Paymentplans>();
+	    	
+	    	Paymentplans obj=null;
+	    	obj=new Paymentplans();
+	    	
+	    	obj.setTitle("Basic plan rs999/month");
+	    	obj.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+ \"2.professional billing\"+ \"3.Unlimited appointment confirmation,reminders and followups\"+ \"4.share records with patients");
+	    	obj.setImage("image2.jpg");
+	    	obj.setButton1("Start your free 30day trial now");
+	    	
+	    	Paymentplans obj1=null;
+	    	obj1=new Paymentplans();
+	    	
+	    	obj1.setTitle("Business plan rs1499/month");
+	    	obj1.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+\"2.professional billing\"+\"3.Unlimited appointment confirmation,reminders and followups\"+\"4.share records with patients\"+\"5.supports 13local languages\"+\"6.patient education tips and videos\"+\"24/7 helpdesk support");
+	    	obj1.setImage("image2.jpg");
+	    	obj1.setButton1("Start your free 30day trial now");
+	    	
+	    	plan.add(obj);
+	    	plan.add(obj1);
+	    	
+	    	plans.setMessage("Success");
+	    	plans.setStatus("200");
+	    	plans.setData(plan);
+	    	
+	    	
+			return plans;
 				
-				return Response
-					      .status(Response.Status.OK)
-					      .entity(plans)
-					      .build();
-			}
+		 }
 		 
 	     
 }

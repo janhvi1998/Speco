@@ -3,110 +3,112 @@ package com.api;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DataService 
 {
-	 private List<Doctors> doctor = new ArrayList<>();
-	 private List<Clinic> clinic = new ArrayList<>();
+	 private List<Doctors> doctor = new ArrayList<Doctors>();
+	 private List<Clinic> clinic = new ArrayList<Clinic>();
 	 private static DataService ourInstance = new DataService();
 	 public static DataService getInstance() 
 	 {
 	        return ourInstance;
 	 }
-	 public String doctor(Doctors doctors) 
+	 public CheckDoctors doctor(Doctors doctors) 
 	 {
-	        String newId = Integer.toString(doctor.size() + 1);
-	        doctors.setId(newId);
-	        doctor.add(doctors);
-	        return "Data added successfully need to test";
+		 String newID=Integer.toString(doctor.size()+1);
+		 doctors.setId(newID);
+	 	 CheckDoctors insert=new CheckDoctors();
+	 	 doctor.add(doctors);
+	 	 insert.setData(doctor);
+	 	 insert.setMessage("success");
+	 	 insert.setStatus("200");
+		 return insert;
 	 }
-	 public String doctor(
-	    		String name,String registrationno,String practice, String institutename,String experience,String qualificationname,String phoneno,String procurementyear,
-	    		String overview) 
-	 {
-	        Doctors doctor = new Doctors();
-	        doctor.setName(name);
-	        doctor.setRegistrationno(registrationno);;
-	        doctor.setPractice(practice);
-	        doctor.setInstitute(institutename);
-	        doctor.setExperience(experience);
-	        doctor.setQualification(qualificationname);
-	        doctor.setPhone(phoneno);;
-	        doctor.setProcurement(procurementyear);
-	        doctor.setOverview(overview);
-	        return doctor(doctor);
-	  }
-	  public List<Doctors> getdoctors() 
+
+	  public CheckDoctors getdoctors() 
 	  {
-	        return doctor;
+		  CheckDoctors insert=new CheckDoctors();
+		  insert.setData(doctor);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
 	  }
-	  public Doctors getdoctorbyid(String id)
+	  public CheckDoctors getdoctorbyid(String id)
 	  {
 	        for (Doctors doctors : doctor) 
 	        {
 	            if (doctors.getId().equals(id)) {
-	                return doctors;
-	            }
+	            	
+	            	 List<Doctors> getbyid=new ArrayList<Doctors>();
+		             getbyid.add(doctors);
+		             CheckDoctors insert=new CheckDoctors();
+		   		     insert.setData(getbyid);
+		   		 	 insert.setMessage("success");
+		   		 	 insert.setStatus("200");
+		   			 return insert;
+		         }
+	               
 	        }
 
 	        return null;
 	  }
 	  
-	  public String clinic(Clinic clinics) {
-	        String newId = Integer.toString(clinic.size() + 1);
-	        clinics.setId(newId);
-	        clinic.add(clinics);
-	        return "Clinic added successfully";
-	    }
-	   public String clinic(String clinicname, String registrationno, String location
-			    ,String aadharcardno,String emailid,String qualificationname,String phoneno,String institutename,
-			    String clinictype,String procurementyear,String yearsofpractice,String associatedfacilites,
-			    String clinicregistration,String docname) 
+	  public CheckClinic clinic(Clinic clinics)
 	  {
-			        Clinic clinics = new Clinic();
-			        clinics.setClinicname(clinicname);
-			        clinics.setRegistrationno(registrationno);
-			        clinics.setLocation(location);
-			        clinics.setAadharcard(aadharcardno);
-			        clinics.setEmailid(emailid);
-			        clinics.setQualificationname(qualificationname);
-			        clinics.setPhoneNumber(phoneno);
-			        clinics.setInstitutename(institutename);
-			        clinics.setClinictype(clinictype);
-			        clinics.setProcurementyear(procurementyear);
-			        clinics.setYearsofpractice(yearsofpractice);
-			        clinics.setAssociatedfacilites(associatedfacilites);
-			        clinics.setClinicregistration(clinicregistration);
-			        clinics.setDocname(docname);
-			        return clinic(clinics);
+		     String newID=Integer.toString(clinic.size()+1);
+			 clinics.setId(newID);
+		 	 CheckClinic insert=new CheckClinic();
+		 	 clinic.add(clinics);
+		 	 insert.setData(clinic);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
 	  }
-	   public List<Clinic> getcliniclist() {
-	        return clinic;
-	    }
+	  
+	  
+	   public CheckClinic getcliniclist() 
+	   {
+		     CheckClinic insert=new CheckClinic();
+		     insert.setData(clinic);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+	   }
 	 
-		 public Clinic getClinicById(String id)
+	   public CheckClinic getClinicById(String id)
 		 {
 		        for (Clinic register : clinic) {
-		            if (register.getId().equals(id)) {
-		                return register;
-		            }
+		            if (register.getId().equals(id)) 
+		            {
+		                
+		            	 List<Clinic> getbyid=new ArrayList<Clinic>();
+			             getbyid.add(register);
+			             CheckClinic insert=new CheckClinic();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   			 return insert;
+		              }
 		        }
 	
 		        return null;
 		 }
-		 public Clinic getdeleteclinic(String id) 
+		 public CheckClinic getdeleteclinic(String id) 
 		 {
 		        for (Clinic clinics : clinic) {
 		            if (clinics.getId().equals(id))
 		            {
-						clinic.remove(clinics);
+						 clinic.remove(clinics);
+						 CheckClinic insert=new CheckClinic();
+			   		     insert.setData(clinic);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		    return insert;
 					 }
-		            return clinics;
 		        }
 				return null;
 		       
 		    }
-		 public Clinic updateclinicdetails(String id,String clinicname, String registrationno, String location
+		 public CheckClinic updateclinicdetails(String id,String clinicname, String registrationno, String location
 				    ,String aadharcardno,String emailid,String qualificationname,String phoneno,String institutename,
 				    String clinictype,String procurementyear,String yearsofpractice,String associatedfacilites,
 				    String clinicregistration,String docname)
@@ -128,9 +130,15 @@ public class DataService
 				        cd.setAssociatedfacilites(associatedfacilites);
 				        cd.setClinicregistration(clinicregistration);
 				        cd.setDocname(docname);
-		            	return cd;
-		            	
-		            }
+				        
+				         List<Clinic> getbyid=new ArrayList<Clinic>();
+			             getbyid.add(cd);
+			             CheckClinic insert=new CheckClinic();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		    return insert;
+			                  }
 			 }
 			return null;
 		 }

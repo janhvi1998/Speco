@@ -9,14 +9,6 @@ private String image;
 private String button1;
 
 
-
-public Paymentplans(String title, String description, String image, String button1) 
-{
-	this.image = image;
-	this.title = title;
-	this.description = description;
-	this.button1 = button1;
-}
 public String getImage() {
 	return image;
 }

@@ -6,13 +6,6 @@ private String title;
 private String description;
 private String image;
 
-
-public Onboarding(String title, String description, String image) {
-	// TODO Auto-generated constructor stub
-	this.title=title;
-	this.description=description;
-	this.image=image;
-}
 public String getImage() {
 	return image;
 }
