@@ -27,7 +27,7 @@ public class BaseClassApi
 	@Path("doctor")
     @Consumes(MediaType.APPLICATION_JSON)
  	@Produces(MediaType.APPLICATION_JSON)
- 	public Response getdoctors(Doctors doctor)
+ 	public Response GetDoctors(Doctors doctor)
  	{
  		return Response.status(200).entity(dataService.doctor(doctor)).build();
  	}
@@ -35,18 +35,18 @@ public class BaseClassApi
 	 @GET
 	 @Path("doctor")
      @Produces(MediaType.APPLICATION_JSON)
-     public CheckDoctors getdoctors() {
-         return dataService.getdoctors();
+     public CheckDoctors GetDoctors() {
+         return dataService.GetDoctors();
      }
      
 	 @GET
 	 @Path("doctor/{doctorid}")
 	 @Produces(MediaType.APPLICATION_JSON)
-	 public Response getdoctor(@PathParam("doctorid") String id) {
-	        CheckDoctors doctor = dataService.getdoctorbyid(id);
+	 public Response GetDoctor(@PathParam("doctorid") String id) {
+	        CheckDoctors doctor = dataService.GetDoctorById(id);
 	        if (doctor == null) {
 	        	 return Response
-	   			      .status(Response.Status.NOT_FOUND).entity(dataService.getdoctorbyid(id))
+	   			      .status(Response.Status.NOT_FOUND).entity(dataService.GetDoctorById(id))
 	   			      .build();
 	        } else {
 	            return Response.ok()
@@ -58,7 +58,7 @@ public class BaseClassApi
 	 @GET
 	 @Path("onboarding")
 	 @Produces(MediaType.APPLICATION_JSON)
-	 public CheckOnboarding getonboardingesponse() {
+	 public CheckOnboarding GetOnboardingResponse() {
 		 
 		 	CheckOnboarding onboard=new CheckOnboarding();
 		 	
@@ -115,7 +115,7 @@ public class BaseClassApi
 		@Path("clinic")
 	    @Consumes(MediaType.APPLICATION_JSON)
 	 	@Produces(MediaType.APPLICATION_JSON)
-	 	public Response getclinic(Clinic clinic)
+	 	public Response GetClinic(Clinic clinic)
 	 	{
 	    	return Response.status(200).entity(dataService.clinic(clinic)).build();
 	 	}
@@ -123,17 +123,17 @@ public class BaseClassApi
 	     @GET
 		 @Path("clinic")
 	     @Produces(MediaType.APPLICATION_JSON)
-	     public CheckClinic getclinics() {
-	         return dataService.getcliniclist();
+	     public CheckClinic GetClinics() {
+	         return dataService.GetClinic();
 	     }
 	     
 	     @GET
 		 @Path("clinic/{clinicid}")
 		 @Produces(MediaType.APPLICATION_JSON)
-		 public Response getclinicbyid(@PathParam("clinicid") String id) {
-		        CheckClinic clinic = dataService.getClinicById(id);
+		 public Response GetClinicById(@PathParam("clinicid") String id) {
+		        CheckClinic clinic = dataService.GetClinicById(id);
 		        if (clinic == null) {
-		            return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
+		            return Response.status(Response.Status.NOT_FOUND).entity(dataService.GetClinicById(id))
 		                      .build();
 		        } else {
 		            return Response.ok()
@@ -146,14 +146,14 @@ public class BaseClassApi
 	     @Path("clinic/{clinicid}")
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
-	     public Response getCustomer(@PathParam("clinicid") String id,Clinic cs) {
-	         CheckClinic cur = dataService.getClinicById(id);
+	     public Response GetClinic(@PathParam("clinicid") String id,Clinic cs) {
+	         CheckClinic cur = dataService.GetClinicById(id);
 	         if (cur == null) {
-	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
+	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.GetClinicById(id))
 	                       .build();
 	         } else {
 	        	 return Response.ok()
-	                            .entity(dataService.updateclinicdetails(id,cs.getClinicname(),cs.getRegistrationno(),cs.getLocation(),cs.getAadharcard(),cs.getEmailid(),cs.getQualificationname(),cs.getPhoneNumber(),cs.getInstitutename(),cs.getClinictype(),cs.getProcurementyear(),cs.getYearsofpractice(),cs.getAssociatedfacilites(),cs.getClinicregistration(),cs.getDocname()))
+	                            .entity(dataService.UpdateClinicDetails(id,cs.getClinicname(),cs.getRegistrationno(),cs.getLocation(),cs.getAadharcard(),cs.getEmailid(),cs.getQualificationname(),cs.getPhoneNumber(),cs.getInstitutename(),cs.getClinictype(),cs.getProcurementyear(),cs.getYearsofpractice(),cs.getAssociatedfacilites(),cs.getClinicregistration(),cs.getDocname()))
 	                            .build();
 	         }
 	     }
@@ -162,10 +162,10 @@ public class BaseClassApi
 	     @Path("clinic/{clinicid}")
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
-	     public Response getdetail(@PathParam("clinicid") String id) {
-	         CheckClinic del = dataService.getdeleteclinic(id);
+	     public Response GetDeleteClinic(@PathParam("clinicid") String id) {
+	         CheckClinic del = dataService.GetDeleteClinic(id);
 	         if (del == null) {
-	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
+	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.GetClinicById(id))
 	                       .build();
 	         } else {
 	        	 
@@ -178,21 +178,21 @@ public class BaseClassApi
 	     @GET
 		 @Path("paymentplans")
 		 @Produces(MediaType.APPLICATION_JSON)
-		 public CheckPaymentplans getpaymentplansesponse() 
+		 public CheckPaymentplans GetPaymentPlansResponse() 
 	     {
 	    	CheckPaymentplans plans=new CheckPaymentplans();
-	    	List<Paymentplans> plan=new ArrayList<Paymentplans>();
+	    	List<PaymentPlans> plan=new ArrayList<PaymentPlans>();
 	    	
-	    	Paymentplans obj=null;
-	    	obj=new Paymentplans();
+	    	PaymentPlans obj=null;
+	    	obj=new PaymentPlans();
 	    	
 	    	obj.setTitle("Basic plan rs999/month");
 	    	obj.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+ \"2.professional billing\"+ \"3.Unlimited appointment confirmation,reminders and followups\"+ \"4.share records with patients");
 	    	obj.setImage("image2.jpg");
 	    	obj.setButton1("Start your free 30day trial now");
 	    	
-	    	Paymentplans obj1=null;
-	    	obj1=new Paymentplans();
+	    	PaymentPlans obj1=null;
+	    	obj1=new PaymentPlans();
 	    	
 	    	obj1.setTitle("Business plan rs1499/month");
 	    	obj1.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+\"2.professional billing\"+\"3.Unlimited appointment confirmation,reminders and followups\"+\"4.share records with patients\"+\"5.supports 13local languages\"+\"6.patient education tips and videos\"+\"24/7 helpdesk support");

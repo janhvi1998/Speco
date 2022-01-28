@@ -2,7 +2,7 @@ package api.com;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Paymentplans 
+public class PaymentPlans 
 {
 @JsonProperty("Title")
 private String title;
