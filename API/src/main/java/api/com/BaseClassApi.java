@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response;
 @Path("/")
 public class BaseClassApi 
 {
-	List<String> empty = new ArrayList<>();
+	List<String> emptys = new ArrayList<>();
 	private DataService dataService = DataService.getInstance();
 	@POST
 	@Path("doctor")
