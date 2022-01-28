@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "be43289e-84fd-48ef-831d-958765d6ae57",
+		"name": "SpecoApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Onboarding",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/onboarding",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"onboarding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddDoctorList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Name\":\"Dr. Viral Vyas\",\"RegistrationNo\":\"94561902\",\"Practice\":\"M.D,Physician\",\"Institute\":\"Medical Institute\",\"Experience\":\"12yrs\",\"Qualification\":\"M.B.B.S\",\"Phone\":\"123456789\",\"Procurement\":\"2018\",\"Overview\":\"Doctor with great experience\",\"Status\":\"today\",\"Image\":\"image2.jpg\",\"OngoingPatient\":\"12+\",\"TreatedPatient\":\"13+\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/doctor",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDoctorList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/doctor",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDoctorListById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/doctor/1",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"doctor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PaymentPlans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/paymentplans",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"paymentplans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddClinicDetails",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ClinicName\":\"shreenathji\",\"RegistrationNo\":\"1234\",\"Location\":\"malad\",\"Aadharcard\":\"123456789\",\"EmailId\":\"jinal@gmail.com\",\"QualificationName\":\"MBA\",\"PhoneNumber\":\"1234567890\",\"InstituteName\":\"abc\",\"ClinicType\":\"dental\",\"ProcrurementYear\":\"2020\",\"YearOfPractice\":\"12years\",\"AssociatedFacilites\":\"abx\",\"ClinicRegistration\":\"link\",\"DoctorName\":\"abc\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/clinic",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"clinic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClinicDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/clinic",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"clinic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClinicById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/clinic/1",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"clinic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateClinicById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ClinicName\":\"shreenathji\",\"RegistrationNo\":\"1234\",\"Location\":\"malad\",\"Aadharcard\":\"123456789\",\"EmailId\":\"jinal@gmail.com\",\"QualificationName\":\"MBA\",\"PhoneNumber\":\"1234567890\",\"InstituteName\":\"abc\",\"ClinicType\":\"dental\",\"ProcrurementYear\":\"2020\",\"YearOfPractice\":\"12years\",\"AssociatedFacilites\":\"abx\",\"ClinicRegistration\":\"link\",\"DoctorName\":\"abc\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/clinic/1",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"clinic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteClinicById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://9ar8okajag.execute-api.ap-south-1.amazonaws.com/dev/clinic/1",
+					"protocol": "https",
+					"host": [
+						"9ar8okajag",
+						"execute-api",
+						"ap-south-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"clinic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
