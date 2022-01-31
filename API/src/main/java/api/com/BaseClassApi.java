@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 
 
 
-@Path("/")
+ @Path("/")
 public class BaseClassApi 
 {
 	List<String> empty = new ArrayList<>();
