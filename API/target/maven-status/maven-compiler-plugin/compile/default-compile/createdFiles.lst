@@ -6,7 +6,7 @@ api\com\Clinic.class
 api\com\CheckOnboarding.class
 api\com\BaseClassApi.class
 api\com\CheckDoctors.class
-api\com\PaymentPlans.class
 api\com\Onboarding.class
 api\com\CheckPaymentplans.class
+api\com\Paymentplans.class
 api\com\StreamLambdaHandler.class

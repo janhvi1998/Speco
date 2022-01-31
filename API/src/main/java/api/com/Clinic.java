@@ -11,7 +11,7 @@ public class Clinic {
     private String registrationno;
 	@JsonProperty("Location")
     private String location;
-	@JsonProperty("AadharCard")
+	@JsonProperty("Aadharcard")
     private String aadharcard;
 	@JsonProperty("EmailId")
     private String emailid;

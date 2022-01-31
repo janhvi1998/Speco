@@ -40,7 +40,7 @@ public class DataService
 		 return insert;
 	 }
 
-	  public CheckDoctors GetDoctors() 
+	  public CheckDoctors getdoctors() 
 	  {
 		     CheckDoctors insert=new CheckDoctors();
 		     insert.setData(doctor);
@@ -48,7 +48,7 @@ public class DataService
 		 	 insert.setStatus("200");
 			 return insert;
 	  }
-	  public CheckDoctors GetDoctorById(String id)
+	  public CheckDoctors getdoctorbyid(String id)
 	  {
 	        for (Doctors doctors : doctor) 
 	        {
@@ -107,7 +107,7 @@ public class DataService
 	  }
 	  
 	  
-	   public CheckClinic GetClinic() 
+	   public CheckClinic getcliniclist() 
 	   {
 		     CheckClinic insert=new CheckClinic();
 		     insert.setData(clinic);
@@ -116,7 +116,7 @@ public class DataService
 			 return insert;
 	   }
 	 
-	   public CheckClinic GetClinicById(String id)
+	   public CheckClinic getClinicById(String id)
 		 {
 		        for (Clinic register : clinic) {
 		            if (register.getId().equals(id)) 
@@ -142,7 +142,7 @@ public class DataService
 	
 		        return null;
 		 }
-		 public CheckClinic GetDeleteClinic(String id) 
+		 public CheckClinic getdeleteclinic(String id) 
 		 {
 		        for (Clinic clinics : clinic) {
 		            if (clinics.getId().equals(id))
@@ -166,7 +166,7 @@ public class DataService
 				return null;
 		       
 		    }
-		 public CheckClinic UpdateClinicDetails(String id,String clinicname, String registrationno, String location
+		 public CheckClinic updateclinicdetails(String id,String clinicname, String registrationno, String location
 				    ,String aadharcardno,String emailid,String qualificationname,String phoneno,String institutename,
 				    String clinictype,String procurementyear,String yearsofpractice,String associatedfacilites,
 				    String clinicregistration,String docname)
