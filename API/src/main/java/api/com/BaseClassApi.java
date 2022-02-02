@@ -21,8 +21,9 @@ import javax.ws.rs.core.Response;
  @Path("/")
 public class BaseClassApi 
 {
-	List<String> empty = new ArrayList<>();
 	private DataService dataService = DataService.getInstance();
+	
+	
 	@POST
 	@Path("doctor")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -211,5 +212,121 @@ public class BaseClassApi
 				
 		 }
 		 
+	     @GET
+		 @Path("FAQs")
+		 @Produces(MediaType.APPLICATION_JSON)
+		 public CheckFAQs getFAQsResponse() 
+	     {
+	    	CheckFAQs faqs=new CheckFAQs();
+	    	List<FAQs> faq=new ArrayList<FAQs>();
+	    	
+	    	FAQs obj=null;
+	    	obj=new FAQs();
+	    	obj.setTopic("Topic 01");
+	    	obj.setQuestion("What does speco do");
+	    	obj.setAnswer("speco");
+	    	
+	    	FAQs obj1=null;
+	    	obj1=new FAQs();
+	    	
+	    	obj1.setTopic("Topic 02");
+	    	obj1.setQuestion("How does online consultation work");
+	    	obj1.setAnswer("speco");
+	    	
+	    	faq.add(obj);
+	    	faq.add(obj1);
+	    	
+	    	faqs.setMessage("Success");
+	    	faqs.setStatus("200");
+	    	faqs.setData(faq);
+	    	
+	    	
+			return faqs;
+				
+		 }
+	     	@POST
+			@Path("enquiry")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response GetEnquiryResponse(Enquiry enquiry)
+		 	{
+		    	return Response.status(200).entity(dataService.AddEnquiry(enquiry)).build();
+		 	}
+		    
+	     	@POST
+			@Path("appointment")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response AddAppointment(Appointment appointment)
+		 	{
+		    	return Response.status(200).entity(dataService.AddAppointment(appointment)).build();
+		 	}
+	     	
+	     	 @GET
+			 @Path("appointment")
+		     @Produces(MediaType.APPLICATION_JSON)
+		     public CheckAppointment getappointments() {
+		         return dataService.GetAppointment();
+		     }
+	     	
+	     	 
+	     	 @GET
+			 @Path("closedappointment")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckClosedAppointment GetClosedAppointment() 
+		     {
+		    	return dataService.GetClosedAppointment();
+					
+			 }
+	     	 
+	     	 
+	     	 @PUT
+		     @Path("closedappointment/{patientid}")
+		     @Produces(MediaType.APPLICATION_JSON)
+		     @Consumes(MediaType.APPLICATION_JSON)
+		     public Response UpdateClosedAppointment(@PathParam("patientid") String id,ClosedAppointment ca) {
+		         CheckClosedAppointment cca = dataService.GetClosedAppointmentById(id);
+		         if (cca == null) {
+		             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
+		                       .build();
+		         } else {
+		        	 return Response.ok()
+		                            .entity(dataService.updateappointmentrequest(id,ca.getPatientname(),ca.getDescription(),ca.getDate(),ca.getTime(),ca.getAction()))
+		                            .build();
+		         }
+		     }
+	     	 
+	     	 @GET
+			 @Path("cancelledappointment")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckCancelledAppointment GetCancelledAppointment() 
+		     {
+		    	return dataService.GetCancelledAppointment();
+			 }
+	     	 
+	     	 @PUT
+		     @Path("cancelledappointment/{patientid}")
+		     @Produces(MediaType.APPLICATION_JSON)
+		     @Consumes(MediaType.APPLICATION_JSON)
+		     public Response UpdateCancelledAppointment(@PathParam("patientid") String id,CancelledAppointment ca) {
+		         CheckCancelledAppointment cca = dataService.GetCancelledAppointmentById(id);
+		         if (cca == null) {
+		             return Response.status(Response.Status.NOT_FOUND).entity(dataService.GetCancelledAppointmentById(id))
+		                       .build();
+		         } else {
+		        	 return Response.ok()
+		                            .entity(dataService.UpdateRejectAppointment(id,ca.getPatientname(),ca.getReason()))
+		                            .build();
+		         }
+		     }
+	     	 
+	     	 @GET
+			 @Path("patient")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckPatient GetPatient() 
+		     {
+		    	return dataService.GetPatient();					
+			 }
+	     	 
 	     
 }

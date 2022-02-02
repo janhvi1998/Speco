@@ -7,6 +7,11 @@ public class DataService
 {
 	 private List<Doctors> doctor = new ArrayList<Doctors>();
 	 private List<Clinic> clinic = new ArrayList<Clinic>();
+	 private List<Enquiry> enquiry=new ArrayList<Enquiry>();
+	 private List<Appointment> appointment=new ArrayList<Appointment>();
+	 private List<ClosedAppointment> closedappointment=new ArrayList<ClosedAppointment>();
+	 private List<CancelledAppointment> cancelledappointment=new ArrayList<CancelledAppointment>();
+	 
 	 private static DataService ourInstance = new DataService();
 	 public static DataService getInstance() 
 	 {
@@ -29,7 +34,7 @@ public class DataService
 		 doctors1.setImg("image2.jpg");
 		 doctors1.setOngoingpatient("12+");
 		 doctors1.setTreatedpatient("13+");
-		 doctor.add(doctors);
+		 doctor.add(doctors1);
 		 String newID=Integer.toString(doctor.size()+1);
 		 doctors.setId(newID);
 	 	 CheckDoctors insert=new CheckDoctors();
@@ -201,5 +206,255 @@ public class DataService
 			return null;
 		 }
 		 
+		 public CheckEnquiry AddEnquiry(Enquiry enquirys)
+		  {
+			 CheckEnquiry insert=new CheckEnquiry();
+		 	 enquiry.add(enquirys);
+		 	 insert.setData(enquiry);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+		  }
 		 
+		 public CheckAppointment AddAppointment(Appointment appointments)
+		 {
+			 CheckAppointment addappointment=new CheckAppointment();
+			 appointment.add(appointments);
+			 addappointment.setData(appointment);
+			 addappointment.setMessage("success");
+			 addappointment.setStatus("200");
+			 return addappointment;
+		 }
+		 
+		 public CheckAppointment GetAppointment() 
+		  {
+			     CheckAppointment view=new CheckAppointment();
+			     view.setData(appointment);
+			 	 view.setMessage("success");
+			 	 view.setStatus("200");
+				 return view;
+		  }
+		 
+		 public CheckClosedAppointment GetClosedAppointment() 
+	     {
+	    	CheckClosedAppointment closed=new CheckClosedAppointment();
+	    	List<ClosedAppointment> appointment=new ArrayList<ClosedAppointment>();
+	    	
+	    	ClosedAppointment obj=null;
+	    	obj=new ClosedAppointment();
+	    	obj.setPatientid("52562");
+	    	obj.setPatientname("Hetasvi Bhatt");
+	    	obj.setDescription("consulted 2 days ago");
+	    	obj.setDate("12/21/2021");
+	    	obj.setTime("9:30 am to 11:00 am");
+	    	obj.setAction("Follow up");
+	    	
+	    	ClosedAppointment obj1=null;
+	    	obj1=new ClosedAppointment();
+	    	
+	    	obj1.setPatientid("52562");
+	    	obj1.setPatientname("Vikas sharma");
+	    	obj1.setDescription("follow up is scheduled on");
+	    	obj1.setDate("01/02/2022");
+	    	obj1.setAction("12:00 pm to 1:00 pm");
+	    	obj1.setAction("consult");
+	    	
+	    	
+	    	appointment.add(obj);
+	    	appointment.add(obj1);
+	    	
+	    	closed.setMessage("Success");
+	    	closed.setStatus("200");
+	    	closed.setData(appointment);
+	    	return closed;
+				
+		 }
+     	 
+		 public CheckClosedAppointment updateappointmentrequest(String patientid,String patientname,String description, String action,String data,String time)
+		 {
+			 for (ClosedAppointment closeappoint : closedappointment) { 
+		            if (closeappoint.getPatientid().equals(patientid)) 
+		            {
+		            	closeappoint.setPatientid(patientid);
+		            	closeappoint.setPatientname(patientname);
+		            	closeappoint.setDescription(description);
+		            	closeappoint.setDate(data);
+		            	closeappoint.setTime(time);
+		            	closeappoint.setAction(action);
+				         List<ClosedAppointment> getbyid=new ArrayList<ClosedAppointment>();
+			             getbyid.add(closeappoint);
+			             CheckClosedAppointment insert=new CheckClosedAppointment();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		    return insert;
+			         }
+			 }
+			return null;
+		 }
+		 public CheckClosedAppointment GetClosedAppointmentById(String id)
+		 {
+		        for (ClosedAppointment register : closedappointment) {
+		            if (register.getPatientid().equals(id)) 
+		            {
+		                
+		            	 List<ClosedAppointment> getbyid=new ArrayList<ClosedAppointment>();
+			             getbyid.add(register);
+			             CheckClosedAppointment insert=new CheckClosedAppointment();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   			 return insert;
+		              }
+		            else
+		            {
+		            	 CheckClosedAppointment insert=new CheckClosedAppointment();
+			   		     insert.setData(null);
+			   		 	 insert.setMessage("No such data in list");
+			   		 	 insert.setStatus("404");
+			   			 return insert;	
+		            }
+		        }
+				return null;
+		 }	 
+		 
+		 public CheckCancelledAppointment GetCancelledAppointmentById(String id)
+		 {
+		        for (CancelledAppointment register : cancelledappointment) {
+		            if (register.getPatientid().equals(id)) 
+		            {
+		                
+		            	 List<CancelledAppointment> getbyid=new ArrayList<CancelledAppointment>();
+			             getbyid.add(register);
+			             CheckCancelledAppointment insert=new CheckCancelledAppointment();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   			 return insert;
+		              }
+		            else
+		            {
+		            	 CheckCancelledAppointment insert=new CheckCancelledAppointment();
+			   		     insert.setData(null);
+			   		 	 insert.setMessage("No such data in list");
+			   		 	 insert.setStatus("404");
+			   			 return insert;	
+		            }
+		        }
+				return null;
+		 }
+		 
+		 
+		 public CheckCancelledAppointment GetCancelledAppointment() 
+	     {
+	    	CheckCancelledAppointment cancelled=new CheckCancelledAppointment();
+	    	
+	    	CancelledAppointment obj=null;
+	    	obj=new CancelledAppointment();
+	    	obj.setPatientid("52562");
+	    	obj.setPatientname("Hetasvi Bhatt");
+	    	obj.setReason("xyz");
+	    	
+	    	CancelledAppointment obj1=null;
+	    	obj1=new CancelledAppointment();
+	    	
+	    	obj1.setPatientid("52562");
+	    	obj1.setPatientname("Vikas sharma");
+	    	obj1.setReason("abcd");
+	    	
+	    	cancelledappointment.add(obj);
+	    	cancelledappointment.add(obj1);
+	    	
+	    	cancelled.setMessage("Success");
+	    	cancelled.setStatus("200");
+	    	cancelled.setData(cancelledappointment);
+	    	return cancelled;
+				
+		 }
+     	
+		 
+		 
+		 public CheckCancelledAppointment UpdateRejectAppointment(String patientid,String patientname,String reason)
+		 {
+			 for (CancelledAppointment cancelappoint : cancelledappointment) { 
+		            if (cancelappoint.getPatientid().equals(patientid)) 
+		            {
+		            	cancelappoint.setPatientid(patientid);
+		            	cancelappoint.setPatientname(patientname);
+		            	cancelappoint.setReason(reason);
+		            	 List<CancelledAppointment> getbyid=new ArrayList<CancelledAppointment>();
+			             getbyid.add(cancelappoint);
+			             CheckCancelledAppointment insert=new CheckCancelledAppointment();
+			   		     insert.setData(getbyid);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		    return insert;
+			         }
+			 }
+			return null;
+		 }
+		 public CheckPatient GetPatient() 
+	     {
+	    	CheckPatient patient=new CheckPatient();
+	    	List<Patient> viewpatient=new ArrayList<Patient>();
+	    	
+	    	Patient obj=null;
+	    	obj=new Patient();
+	    	obj.setPatientid("52562");
+	    	obj.setPatientname("Hetasvi Bhatt");
+	    	obj.setSex("female");
+	    	obj.setContact("289783708200");
+	    	obj.setLastvisit("11/01/2020 11:00 am to 12:00 pm");
+	    	obj.setConsultationfees("500");
+	    	obj.setConsultedto("Dr vyas");
+	    	obj.setDate("12/02/2021");
+	    	obj.setTime("11:00 am to 12:00 pm");
+	    	obj.setConsultationmode("offline consultation");
+	    	obj.setEmrimages("image1.jpg");
+	    	obj.setConcern("fever");
+	    	obj.setPatientuploadeddata("image2.jpg");
+	    	obj.setAllergies("rashes");
+	    	obj.setCurrentmedications("abc");
+	    	obj.setDiseases("fever");
+	    	obj.setSurgeries("xyz");
+	    	obj.setWearabledata("abc");
+	    	obj.setPersonalhistory("abc");
+	    	obj.setFamilyhistory("def");
+	    	obj.setSocioeconomicstatus("xyz");
+	    	
+	    	Patient obj1=null;
+	    	obj1=new Patient();
+	    	
+	    	obj1.setPatientid("52562");
+	    	obj1.setPatientname("Vikas sharma");
+	    	obj1.setSex("Male");
+	    	obj1.setContact("81236922812");
+	    	obj1.setLastvisit("15/02/2021 1:00 pm to 2:00 pm");
+	    	obj1.setConsultationfees("500");
+	    	obj1.setConsultedto("Dr vyas");
+	    	obj1.setDate("12/02/2021");
+	    	obj1.setTime("11:00 am to 12:00 pm");
+	    	obj1.setConsultationmode("offline consultation");
+	    	obj1.setEmrimages("image1.jpg");
+	    	obj1.setConcern("fever");
+	    	obj1.setPatientuploadeddata("image2.jpg");
+	    	obj1.setAllergies("rashes");
+	    	obj1.setCurrentmedications("abc");
+	    	obj1.setDiseases("fever");
+	    	obj1.setSurgeries("xyz");
+	    	obj1.setWearabledata("abc");
+	    	obj1.setPersonalhistory("abc");
+	    	obj1.setFamilyhistory("def");
+	    	obj1.setSocioeconomicstatus("xyz");
+	    	
+	    	viewpatient.add(obj);
+	    	viewpatient.add(obj1);
+	    	
+	    	patient.setMessage("Success");
+	    	patient.setStatus("200");
+	    	patient.setData(viewpatient);
+	    	return patient;
+				
+		 }
+     
 }
