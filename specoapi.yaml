@@ -1,376 +1,929 @@
 openapi: 3.0.0
 info:
-    title: Speco Api
-    description: learning and implementing
-    version: 1.0.0
-    contact:
-      email: jinalpansara@gmail.com
-      name: Jinal Pansara
+  title: Speco Api
+  description: learning and implementing
+  version: 1.0.0
+  contact:
+    email: jinalpansara@gmail.com
+    name: Jinal Pansara
 paths:
   /onboarding:
     get:
-      description: Onboarding elements 
+      description: Onboarding elements
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Onboarding'
-        
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-        
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onboarding'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy"      
-
-  /PaymentPlans:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /paymentplans:
     get:
       description: PaymentPlans elements
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PaymentPlans'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentplans'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-  
-  /Doctor:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /doctor:
     post:
       description: Doctor elements
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Doctor'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doctor'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-
-  /Doctor/{DoctorId}:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /doctor/{doctorid}:
     get:
       description: Doctor elements
       parameters:
-        - name: DoctorId
+        - name: doctorid
           required: true
           in: path
           schema:
-           type: integer
-        
+            type: integer
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Doctor'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doctor'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
+        uri:
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
         
-  /Clinic:
+  /clinic:
     post:
       description: Clinic elements
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Clinic'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clinic'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-        
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
     get:
       description: Clinic elements
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Clinic'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clinic'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-    
-  /Clinic/{ClinicId}:
+        uri:
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /clinic/{clinicid}:
     get:
       description: Clinic elements
       parameters:
-        - name: ClinicId
+        - name: clinicid
           required: true
           in: path
           schema:
-           type: integer
-        
+            type: integer
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Clinic'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clinic'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-    
+        uri:
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
     put:
       description: Clinic elements
       parameters:
-        - name: ClinicId
+        - name: clinicid
           required: true
           in: path
           schema:
-           type: integer
-      
-        
+            type: integer
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Clinic'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clinic'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-
+        uri:
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
     delete:
       description: Clinic elements
       parameters:
-        - name: ClinicId
+        - name: clinicid
           required: true
           in: path
           schema:
-           type: string
-        
+            type: string
       responses:
-       "200":
-        description: 200 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Clinic'
-      
-      
-       "404":
-        description: 404 response
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/errormodel'
-              
-      
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/clinic'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
       x-amazon-apigateway-integration:
-        uri: "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations"
-        passthroughBehavior: "when_no_match"
-        httpMethod: "POST"
-        type: "aws_proxy" 
-
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /FAQs:
+    get:
+      description: Faqs elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FAQs'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /enquiry:
+    post:
+      description: enquiry elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/enquiry'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri:
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /appointment:
+    post:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/appointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+    get:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/appointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /closedappointment:
+    get:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closedappointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /closedappointment/{patientid}:
+    put:
+      description: Clinic elements
+      parameters:
+        - name: patientid
+          required: true
+          in: path
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closedappointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /cancelledappointment:
+    get:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cancelledappointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /cancelledappointment/{patientid}:
+    put:
+      description: cancelled appointment elements
+      parameters:
+        - name: patientid
+          required: true
+          in: path
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cancelledappointment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /patient:
+    get:
+      description: patient elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patient'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
   
+  /payment:
+    get:
+      description: payment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/payment'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /EMR:
+    get:
+      description: payment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emr'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
+  /visit:
+    get:
+      description: payment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/visit'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        
 components:
   schemas:
-    Onboarding:
-      type: array
-      items: 
-        type: object
-        properties:
-          Title: 
-            type: string
-          Description:
-            type: string
-          Image:
-            type: string
-            
-    PaymentPlans:
-      type: array
-      items:
-        type: object
-        properties:
-          Title:
-            type: string
-          Description: 
-            type: string
-          Image:
-            type: string
-          Button:
-            type: string
+    onboarding:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              Title:
+                type: string
+              Description:
+                type: string
+              image:
+                type: string
+    paymentplans:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              Title:
+                type: string
+              Description:
+                type: string
+              Image:
+                type: string
+              Button:
+                type: string
+    doctor:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              Name:
+                type: string
+              RegistrationNo:
+                type: string
+              Practice:
+                type: string
+              Institute:
+                type: string
+              Experience:
+                type: string
+              Qualification:
+                type: string
+              Phone:
+                type: string
+              Procurement:
+                type: string
+              Overview:
+                type: string
+              Status:
+                type: string
+              Image:
+                type: string
+              OngoingPatient:
+                type: string
+              TreatedPatient:
+                type: string
+              Id:
+                type: string
+    clinic:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              ClinicName:
+                type: string
+              RegistrationNo:
+                type: string
+              Location:
+                type: string
+              AadharCard:
+                type: string
+              EmailId:
+                type: string
+              QualificationName:
+                type: string
+              PhoneNumber:
+                type: string
+              InstituteName:
+                type: string
+              ClinicType:
+                type: string
+              ProcurementYear:
+                type: string
+              YearOfPractice:
+                type: string
+              AssociatedFacilities:
+                type: string
+              ClinicRegistration:
+                type: string
+              DoctorName:
+                type: string
+              Id:
+                type: string
+    FAQs:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              Topic:
+                type: string
+              Question:
+                type: string
+              Answer:
+                type: string
+    enquiry:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              EmailId:
+                type: string
+              Name:
+                type: string
+              Enquiry For:
+                type: string
+    appointment:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientId:
+                type: string
+              PatientName:
+                type: string
+              Condition:
+                type: string
+              Description:
+                type: string
+              Action:
+                type: string
+    closedappointment:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientId:
+                type: string
+              PatientName:
+                type: string
+              Condition:
+                type: string
+              Date:
+                type: string
+              Time:
+                type: string
+              Description:
+                type: string
+              Action:
+                type: string
+    cancelledappointment:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientId:
+                type: string
+              PatientName:
+                type: string
+              Reason:
+                type: string
     
-    Doctor:
-      type: array
-      items:
-        type: object
-        properties:
-          Name: 
-            type: string
-          RegistrationNo:
-            type: string
-          Practice:
-            type: string
-          Institute:
-            type: string
-          Experience:
-            type: string
-          Qualification:
-            type: string
-          Phone:
-            type: string
-          Procurement:
-            type: string
-          Overview:
-            type: string
-          Status:
-            type: string
-          Image:
-            type: string
-          OngoingPatient: 
-            type: string
-          TreatedPatient:
-            type: string
-          Id:
-            type: string
-          
-          
-    Clinic:
-      type: array
-      items: 
-        type: object
-        properties:
-          ClinicName: 
-            type: string
-          RegistrationNo:
-            type: string
-          Location:
-            type: string
-          AadharCard:
-            type: string
-          EmailId:
-            type: string
-          QualificationName:
-            type: string
-          PhoneNumber:
-            type: string
-          InstituteName:
-            type: string
-          ClinicType:
-            type: string
-          ProcurementYear:
-            type: string
-          YearOfPractice:
-            type: string
-          AssociatedFacilities:
-            type: string
-          ClinicRegistration:
-            type: string
-          DoctorName:
-            type: string
-          Id:
-            type: string
-          
+    patient:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientId:
+                type: string
+              PatientName:
+                type: string
+              Sex:
+                type: string
+              LastVisit:
+                type: string
+              Contact:
+                type: string
+              ConsultationFees:
+                type: string
+              ConsultedTo:
+                type: string
+              EMR:
+                type: string
+              PatientUploadedData:
+                type: string
+              Allergies:
+                type: string
+              CurrentMedications:
+                type: string
+              Diseases:
+                type: string
+              Surgeries:
+                type: string
+              WearableData:
+                type: string
+              PersonalHistory:
+                type: string
+              FamilyHistory:
+                type: string
+              SocioEconomicStatus:
+                type: string
+              Concern:
+                type: string
+              
+    payment:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientId:
+                type: string
+              PatientName:
+                type: string
+              Date:
+                type: string
+              Time:
+                type: string
+              Charges:
+                type: string
+              Detail:
+                type: string
+              Quantity:
+                type: string
+              UnitCost:
+                type: string
+              Discount:
+                type: string
+              Total:
+                type: string
         
+    emr:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientName:
+                type: string
+              ConsultedTo:
+                type: string
+              Gender:
+                type: string
+              Age:
+                type: string
+              Symptoms:
+                type: string
+              Findings:
+                type: string
+              Diagnosis:
+                type: string
+              Instruction:
+                type: string
+              FollowUp:
+                type: string
+              Prescription:
+                type: string
+              EMRGenerated:
+                type: string
+              Concern:
+                type: string
+              InvoiceGenerated:
+                type: string
+    
+    visit:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              PatientName:
+                type: string
+              Gender:
+                type: string
+              Age:
+                type: string
+              CaseId:
+                type: string
+              Date:
+                type: string
+              Time:
+                type: string
+              ModeOfConsultation:
+                type: string
+              Visits:
+                type: string
+              ChiefComplaint:
+                type: string
+              HistoryOfPresentIllness:
+                type: string
+              HistoryOfPastIllness:
+                type: string
+              GeneralPhysicalExamination:
+                type: string
+              SystematicExamination:
+                type: string
+              LocalExamination:
+                type: string
+              ProvisionalDiagnosis:
+                type: string
+              Investigation:
+                type: string
+              FinalDiagnosis:
+                type: string
+              LabReports:
+                type: string
+              Medications:
+                type: string
+              Invoices:
+                type: string
+                        
+              
+            
     errormodel:
       type: object
       required:
-      - message
-      - code
+        - message
+        - code
       properties:
         message:
           type: string
@@ -378,15 +931,3 @@ components:
           type: integer
           minimum: 100
           maximum: 600
-          
-        
-      
-            
-          
-      
-        
-      
-    
-  
-  
-  
