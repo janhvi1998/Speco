@@ -42,7 +42,7 @@ public class Patient
 	private String personalhistory;
 	@JsonProperty("FamilyHistory")
 	private String familyhistory;
-	@JsonProperty("SociEconomicStatus")
+	@JsonProperty("SocioEconomicStatus")
 	private String socioeconomicstatus;
 	@JsonProperty("Concern")
 	private String concern;

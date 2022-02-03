@@ -328,5 +328,166 @@ public class BaseClassApi
 		    	return dataService.GetPatient();					
 			 }
 	     	 
+	     	 @GET
+			 @Path("payment")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckPayment GetPaymentResponse() 
+		     {
+		    	CheckPayment payments=new CheckPayment();
+		    	List<Payment> payment=new ArrayList<Payment>();
+		    	
+		    	Payment obj=null;
+		    	obj=new Payment();
+		    	obj.setPatientid("52562");
+		    	obj.setPatientname("Hetasvi Bhatt");
+		    	obj.setDate("12 oct 2021");
+		    	obj.setTime("11:00 am to 12:00 pm");
+		    	obj.setCharges("3890 rs");
+		    	obj.setDetail("visiting charge");
+		    	obj.setQuantity("0");
+		    	obj.setUnitcost("0");
+		    	obj.setDiscount("0");
+		    	obj.setTotal("2000");
+		    	
+		    	Payment obj1=null;
+		    	obj1=new Payment();
+		    	obj1.setPatientid("52562");
+		    	obj1.setPatientname("Hetasvi Bhatt");
+		    	obj1.setDate("12 oct 2021");
+		    	obj1.setTime("11:00 am to 12:00 pm");
+		    	obj1.setCharges("3890 rs");
+		    	obj1.setTotal("Paid");
+		    	
+		    	payment.add(obj);
+		    	payment.add(obj1);
+		    	
+		    	payments.setMessage("Success");
+		    	payments.setStatus("200");
+		    	payments.setData(payment);
+		    	
+		    	
+				return payments;
+					
+			 }
+	     	 
+	     	 @GET
+			 @Path("EMR")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckEMR GetEMRResponse() 
+		     {
+		    	CheckEMR emrs=new CheckEMR();
+		    	List<EMR> emr=new ArrayList<EMR>();
+		    	
+		    	EMR obj=null;
+		    	obj=new EMR();
+		    	obj.setPatientname("Hetasvi Bhatt");
+		    	obj.setConsultedto("Dr viral vyas");
+		    	obj.setGender("Female");
+		    	obj.setAge("23 years");
+		    	obj.setSymptoms("cough");
+		    	obj.setFinding("urine output normal");
+		    	obj.setDiagnosis("viral infection");
+		    	obj.setInstruction("careful");
+		    	obj.setFollowup("6th nov online consultation 4:00 pm to 6:00 pm");
+		    	obj.setPrescription("domstal 4x3 times a day");
+		    	obj.setEmrgenerated("image1.jpg");
+		    	obj.setInvoicegenerated("image1.jpg");
+		    	
+		    	
+		    	EMR obj1=null;
+		    	obj1=new EMR();
+		    	obj1.setPatientname("Hetasvi Bhatt");
+		    	obj1.setConsultedto("Dr viral vyas");
+		    	obj1.setGender("Female");
+		    	obj1.setAge("23 years");
+		    	obj1.setSymptoms("cough");
+		    	obj1.setFinding("urine output normal");
+		    	obj1.setDiagnosis("viral infection");
+		    	obj1.setInstruction("careful");
+		    	obj1.setFollowup("6th nov online consultation 4:00 pm to 6:00 pm");
+		    	obj1.setPrescription("domstal 4x3 times a day");
+		    	obj1.setEmrgenerated("image1.jpg");
+		    	obj1.setInvoicegenerated("image1.jpg");
+		    	
+		    	emr.add(obj);
+		    	emr.add(obj1);
+		    	
+		    	emrs.setMessage("Success");
+		    	emrs.setStatus("200");
+		    	emrs.setData(emr);
+		    	
+		    	
+				return emrs;
+					
+			 }
+	     	 
+	     	 @GET
+			 @Path("visit")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public CheckVisit GetVisitResponse() 
+		     {
+		    	CheckVisit visits=new CheckVisit();
+		    	List<Visit> visit=new ArrayList<Visit>();
+		    	
+		    	Visit obj=null;
+		    	obj=new Visit();
+		    	obj.setPatientname("Hetasvi Bhatt");
+		    	obj.setGender("Female");
+		    	obj.setAge("23 years");
+		    	obj.setCaseid("12345");
+		    	obj.setDate("aug 07 2021");
+		    	obj.setTime("13:00 pm");
+		    	obj.setModeofconsultation("online consultation");
+		    	obj.setVisits("visit 03");
+		    	obj.setChiefcomplaint("abcs");
+		    	obj.setHistoryofpastillness("xyz");
+		    	obj.setHistoryofpresentillness("xyz");
+		    	obj.setGeneralphysicalexamination("xyz");
+		    	obj.setSystematicexamination("xyz");
+		    	obj.setLocalexamination("xyz");
+		    	obj.setProvisionaldiagnosis("xyz");
+		    	obj.setInvestigation("xyz");
+		    	obj.setFinaldiagnosis("xyz");
+		    	obj.setLabreports("xyz");
+		    	obj.setMedications("xyz");
+		    	obj.setInvoices("xyz");
+		    	
+		    	Visit obj1=null;
+		    	obj1=new Visit();
+		    	obj1.setPatientname("Hetasvi Bhatt");
+		    	obj1.setGender("Female");
+		    	obj1.setAge("23 years");
+		    	obj1.setCaseid("12345");
+		    	obj1.setDate("aug 07 2021");
+		    	obj1.setTime("13:00 pm");
+		    	obj1.setModeofconsultation("online consultation");
+		    	obj1.setVisits("visit 03");
+		    	obj1.setChiefcomplaint("abcs");
+		    	obj1.setHistoryofpastillness("xyz");
+		    	obj1.setHistoryofpresentillness("xyz");
+		    	obj1.setGeneralphysicalexamination("xyz");
+		    	obj1.setSystematicexamination("xyz");
+		    	obj1.setLocalexamination("xyz");
+		    	obj1.setProvisionaldiagnosis("xyz");
+		    	obj1.setInvestigation("xyz");
+		    	obj1.setFinaldiagnosis("xyz");
+		    	obj1.setLabreports("xyz");
+		    	obj1.setMedications("xyz");
+		    	obj1.setInvoices("xyz");
+		    	
+		    	
+		    	visit.add(obj);
+		    	visit.add(obj1);
+		    	
+		    	visits.setMessage("Success");
+		    	visits.setStatus("200");
+		    	visits.setData(visit);
+		    	
+		    	
+				return visits;
+					
+			 }
+
+		    
 	     
 }
