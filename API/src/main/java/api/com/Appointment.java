@@ -1,11 +1,18 @@
 package api.com;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Appointment 
 {
+	@JsonProperty("PatientId")
 	private String patientid;
+	@JsonProperty("PatientName")
 	private String patientname;
+	@JsonProperty("Condition")
 	private String condition;
+	@JsonProperty("Description")
 	private String description;
+	@JsonProperty("Action")
 	private String action;
 	public String getPatientid() {
 		return patientid;

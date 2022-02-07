@@ -1,5 +1,7 @@
 package api.com;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Patient 
@@ -10,24 +12,14 @@ public class Patient
 	private String patientname;
 	@JsonProperty("Sex")
 	private String sex;
-	@JsonProperty("LastVisit")
-	private String lastvisit;
 	@JsonProperty("Contact")
 	private String contact;
-	@JsonProperty("ConsultationFees")
-	private String consultationfees;
-	@JsonProperty("ConsultedTo")
-	private String consultedto;
-	@JsonProperty("Date")
-	private String date;
-	@JsonProperty("Time")
-	private String time;
-	@JsonProperty("ConsultationMode")
-	private String consultationmode;
-	@JsonProperty("EMR")
-	private String emrimages;
 	@JsonProperty("PatientUploadedData")
-	private String patientuploadeddata;
+	private List<PatientUploadData> patientuploadeddata;
+	@JsonProperty("FollowUp")
+	private List<FollowUps> followup;
+	@JsonProperty("EMRGenerated")
+	private List<EMRGenerated> emrgenerated;
 	@JsonProperty("Allergies")
 	private String allergies;
 	@JsonProperty("CurrentMedications")
@@ -44,8 +36,8 @@ public class Patient
 	private String familyhistory;
 	@JsonProperty("SocioEconomicStatus")
 	private String socioeconomicstatus;
-	@JsonProperty("Concern")
-	private String concern;
+	@JsonProperty("Age")
+	private String age;
 	
 	public String getPatientid() {
 		return patientid;
@@ -65,58 +57,17 @@ public class Patient
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getLastvisit() {
-		return lastvisit;
-	}
-	public void setLastvisit(String lastvisit) {
-		this.lastvisit = lastvisit;
-	}
+	
 	public String getContact() {
 		return contact;
 	}
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
-	public String getConsultationfees() {
-		return consultationfees;
-	}
-	public void setConsultationfees(String consultationfees) {
-		this.consultationfees = consultationfees;
-	}
-	public String getConsultedto() {
-		return consultedto;
-	}
-	public void setConsultedto(String consultedto) {
-		this.consultedto = consultedto;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-	public String getConsultationmode() {
-		return consultationmode;
-	}
-	public void setConsultationmode(String consultationmode) {
-		this.consultationmode = consultationmode;
-	}
-	public String getEmrimages() {
-		return emrimages;
-	}
-	public void setEmrimages(String emrimages) {
-		this.emrimages = emrimages;
-	}
-	public String getPatientuploadeddata() {
+	public List<PatientUploadData> getPatientuploadeddata() {
 		return patientuploadeddata;
 	}
-	public void setPatientuploadeddata(String patientuploadeddata) {
+	public void setPatientuploadeddata(List<PatientUploadData> patientuploadeddata) {
 		this.patientuploadeddata = patientuploadeddata;
 	}
 	public String getAllergies() {
@@ -167,11 +118,23 @@ public class Patient
 	public void setSocioeconomicstatus(String socioeconomicstatus) {
 		this.socioeconomicstatus = socioeconomicstatus;
 	}
-	public String getConcern() {
-		return concern;
+	public String getAge() {
+		return age;
 	}
-	public void setConcern(String concern) {
-		this.concern = concern;
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public List<FollowUps> getFollowup() {
+		return followup;
+	}
+	public void setFollowup(List<FollowUps> followup) {
+		this.followup = followup;
+	}
+	public List<EMRGenerated> getEmrgenerated() {
+		return emrgenerated;
+	}
+	public void setEmrgenerated(List<EMRGenerated> emrgenerated) {
+		this.emrgenerated = emrgenerated;
 	}
 
 }

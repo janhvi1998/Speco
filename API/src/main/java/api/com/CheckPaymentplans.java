@@ -12,6 +12,8 @@ public class CheckPaymentplans
 	private String status;
 	@JsonProperty("Data")
 	private List<Paymentplans> data;
+	
+	
 	public String getMessage() {
 		return message;
 	}
@@ -30,5 +32,6 @@ public class CheckPaymentplans
 	public void setData(List<Paymentplans> data) {
 		this.data = data;
 	}
+	
 	
 }

@@ -1,13 +1,22 @@
 package api.com;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ClosedAppointment
 {
+	@JsonProperty("PatientId")
 	private String patientid;
+	@JsonProperty("PatientName")
 	private String patientname;
+	@JsonProperty("Condition")
 	private String condition;
+	@JsonProperty("Description")
 	private String description;
+	@JsonProperty("Date")
 	private String date;
+	@JsonProperty("Time")
 	private String time;
+	@JsonProperty("Action")
 	private String action;
 	public String getPatientid() {
 		return patientid;

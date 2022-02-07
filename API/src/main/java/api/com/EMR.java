@@ -1,5 +1,8 @@
 package api.com;
 
+
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EMR 
@@ -13,23 +16,23 @@ public class EMR
 	@JsonProperty("Age")
 	private String age;
 	@JsonProperty("Symptoms")
-	private String symptoms;
+	private List<Symptoms> symptoms;
 	@JsonProperty("Findings")
-	private String finding;
+	private List<Findings> finding;
 	@JsonProperty("Diagnosis")
-	private String diagnosis;
+	private List<Diagnosis> diagnosis;
 	@JsonProperty("Instruction")
 	private String instruction;
 	@JsonProperty("FollowUp")
-	private String followup;
+	private List<FollowUps> followup;
 	@JsonProperty("Prescription")
-	private String prescription;
+	private List<Prescription> prescription;
 	@JsonProperty("EMRGenerated")
-	private String emrgenerated;
+	private List<EMRGenerated> emrgenerated;
 	@JsonProperty("Concern")
 	private String concern;
 	@JsonProperty("InvoiceGenerated")
-	private String invoicegenerated;
+	private List<InvoiceGenerated> invoicegenerated;
 	public String getPatientname() {
 		return patientname;
 	}
@@ -54,22 +57,22 @@ public class EMR
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public String getSymptoms() {
+	public List<Symptoms> getSymptoms() {
 		return symptoms;
 	}
-	public void setSymptoms(String symptoms) {
+	public void setSymptoms(List<Symptoms> symptoms) {
 		this.symptoms = symptoms;
 	}
-	public String getFinding() {
+	public List<Findings> getFinding() {
 		return finding;
 	}
-	public void setFinding(String finding) {
+	public void setFinding(List<Findings> finding) {
 		this.finding = finding;
 	}
-	public String getDiagnosis() {
+	public List<Diagnosis> getDiagnosis() {
 		return diagnosis;
 	}
-	public void setDiagnosis(String diagnosis) {
+	public void setDiagnosis(List<Diagnosis> diagnosis) {
 		this.diagnosis = diagnosis;
 	}
 	public String getInstruction() {
@@ -78,28 +81,28 @@ public class EMR
 	public void setInstruction(String instruction) {
 		this.instruction = instruction;
 	}
-	public String getPrescription() {
+	public List<Prescription> getPrescription() {
 		return prescription;
 	}
-	public void setPrescription(String prescription) {
+	public void setPrescription(List<Prescription> prescription) {
 		this.prescription = prescription;
 	}
-	public String getFollowup() {
+	public List<FollowUps> getFollowup() {
 		return followup;
 	}
-	public void setFollowup(String followup) {
+	public void setFollowup(List<FollowUps> followup) {
 		this.followup = followup;
 	}
-	public String getEmrgenerated() {
+	public List<EMRGenerated> getEmrgenerated() {
 		return emrgenerated;
 	}
-	public void setEmrgenerated(String emrgenerated) {
+	public void setEmrgenerated(List<EMRGenerated> emrgenerated) {
 		this.emrgenerated = emrgenerated;
 	}
-	public String getInvoicegenerated() {
+	public List<InvoiceGenerated> getInvoicegenerated() {
 		return invoicegenerated;
 	}
-	public void setInvoicegenerated(String invoicegenerated) {
+	public void setInvoicegenerated(List<InvoiceGenerated> invoicegenerated) {
 		this.invoicegenerated = invoicegenerated;
 	}
 	public String getConcern() {

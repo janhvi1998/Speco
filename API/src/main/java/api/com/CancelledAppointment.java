@@ -6,7 +6,7 @@ public class CancelledAppointment
 {
 	@JsonProperty("PatientId")
 	private String patientid;
-	@JsonProperty("Patient Name")
+	@JsonProperty("PatientName")
 	private String patientname;
 	@JsonProperty("Reason")
 	private String reason;

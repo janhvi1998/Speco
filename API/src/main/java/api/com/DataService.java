@@ -47,7 +47,23 @@ public class DataService
 
 	  public CheckDoctors getdoctors() 
 	  {
-		     CheckDoctors insert=new CheckDoctors();
+		     Doctors doctors1=new Doctors();
+			 doctors1.setId("1");
+			 doctors1.setName("Dr Viral Vyas");
+			 doctors1.setRegistrationno("94561902");
+			 doctors1.setPractice("M.D,Physician");
+			 doctors1.setInstitute("Medical Institute");
+			 doctors1.setExperience("12yrs");
+			 doctors1.setQualification("M.B.B.S");
+			 doctors1.setPhone("123456789");
+			 doctors1.setProcurement("2018");
+			 doctors1.setOverview("Doctor with great experience");
+			 doctors1.setStatus("today");
+			 doctors1.setImg("image2.jpg");
+			 doctors1.setOngoingpatient("12+");
+			 doctors1.setTreatedpatient("13+");
+			 doctor.add(doctors1);
+		  	 CheckDoctors insert=new CheckDoctors();
 		     insert.setData(doctor);
 		 	 insert.setMessage("success");
 		 	 insert.setStatus("200");
@@ -84,7 +100,21 @@ public class DataService
 	  public CheckClinic clinic(Clinic clinics)
 	  {
 		 
-		  	 Clinic clinic1=new Clinic();
+		  	 
+		  	 String newID=Integer.toString(clinic.size()+1);
+			 clinics.setId(newID);
+		 	 CheckClinic insert=new CheckClinic();
+		 	 clinic.add(clinics);
+		 	 insert.setData(clinic);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+	  }
+	  
+	  
+	   public CheckClinic getcliniclist() 
+	   {
+		     Clinic clinic1=new Clinic();
 		  	 clinic1.setId("1");
 		  	 clinic1.setClinicname("shreenathji");
 		  	 clinic1.setRegistrationno("1234");
@@ -101,20 +131,7 @@ public class DataService
 		  	 clinic1.setClinicregistration("link");
 		  	 clinic1.setDocname("abc");
 		  	 clinic.add(clinic1);
-		  	 String newID=Integer.toString(clinic.size()+1);
-			 clinics.setId(newID);
-		 	 CheckClinic insert=new CheckClinic();
-		 	 clinic.add(clinics);
-		 	 insert.setData(clinic);
-		 	 insert.setMessage("success");
-		 	 insert.setStatus("200");
-			 return insert;
-	  }
-	  
-	  
-	   public CheckClinic getcliniclist() 
-	   {
-		     CheckClinic insert=new CheckClinic();
+		   	 CheckClinic insert=new CheckClinic();
 		     insert.setData(clinic);
 		 	 insert.setMessage("success");
 		 	 insert.setStatus("200");
@@ -228,7 +245,15 @@ public class DataService
 		 
 		 public CheckAppointment GetAppointment() 
 		  {
-			     CheckAppointment view=new CheckAppointment();
+			     
+				 Appointment appointments=new Appointment();
+			  	 appointments.setPatientid("123");
+			  	 appointments.setPatientname("Vyas");
+			  	 appointments.setDescription("xyz");
+			  	 appointments.setCondition("severe");
+			  	 appointments.setAction("consult");
+			  	 appointment.add(appointments);
+			  	 CheckAppointment view=new CheckAppointment();
 			     view.setData(appointment);
 			 	 view.setMessage("success");
 			 	 view.setStatus("200");
@@ -238,12 +263,12 @@ public class DataService
 		 public CheckClosedAppointment GetClosedAppointment() 
 	     {
 	    	CheckClosedAppointment closed=new CheckClosedAppointment();
-	    	List<ClosedAppointment> appointment=new ArrayList<ClosedAppointment>();
 	    	
 	    	ClosedAppointment obj=null;
 	    	obj=new ClosedAppointment();
 	    	obj.setPatientid("52562");
 	    	obj.setPatientname("Hetasvi Bhatt");
+	    	obj.setCondition("severe");
 	    	obj.setDescription("consulted 2 days ago");
 	    	obj.setDate("12/21/2021");
 	    	obj.setTime("9:30 am to 11:00 am");
@@ -256,16 +281,18 @@ public class DataService
 	    	obj1.setPatientname("Vikas sharma");
 	    	obj1.setDescription("follow up is scheduled on");
 	    	obj1.setDate("01/02/2022");
-	    	obj1.setAction("12:00 pm to 1:00 pm");
+	    	obj1.setCondition("severe");
+	    	obj1.setTime("9:30 am to 11:00 am");
+	    	obj1.setAction("followup");
 	    	obj1.setAction("consult");
 	    	
 	    	
-	    	appointment.add(obj);
-	    	appointment.add(obj1);
+	    	closedappointment.add(obj);
+	    	closedappointment.add(obj1);
 	    	
 	    	closed.setMessage("Success");
 	    	closed.setStatus("200");
-	    	closed.setData(appointment);
+	    	closed.setData(closedappointment);
 	    	return closed;
 				
 		 }
@@ -397,58 +424,57 @@ public class DataService
 	     {
 	    	CheckPatient patient=new CheckPatient();
 	    	List<Patient> viewpatient=new ArrayList<Patient>();
+	    	List<FollowUps> followup=new ArrayList<FollowUps>();
+	    	List<EMRGenerated> emr=new ArrayList<EMRGenerated>();
+	    	List<PatientUploadData> patientuploaddata=new ArrayList<PatientUploadData>();
+	    	
+	    	FollowUps followups=new FollowUps();
+	    	followups.setDate("6th aug");
+	    	followups.setTime("4:00 pm to 6:00 pm");
+	    	followups.setMode("Online consultation");
+	    	followup.add(followups);
+	    	
+	    	EMRGenerated emrs=new EMRGenerated();
+	    	emrs.setEmr("image1.jpg");
+	    	emrs.setConsultedto("Dr john D'souza");
+	    	emrs.setConcern("headache,fever");
+	    	emrs.setAppointmentdate("12 oct 2021");
+	    	EMRGenerated emrs1=new EMRGenerated();
+	    	emrs1.setEmr("image1.jpg");
+	    	emrs1.setConsultedto("Dr john D'souza");
+	    	emrs1.setConcern("headache,fever");
+	    	emrs1.setAppointmentdate("12 oct 2021");
+	    	emr.add(emrs);
+	    	emr.add(emrs1);
+	    	
+	    	PatientUploadData patientuploaddatas=new PatientUploadData();
+	    	patientuploaddatas.setFileuploaded("image2.jpg");
+	    	patientuploaddatas.setConsultedto("Dr vyas");
+	    	patientuploaddatas.setConcern("fever");
+	    	patientuploaddatas.setAppointmentdate("12 oct 2021");
+	    	patientuploaddata.add(patientuploaddatas);
 	    	
 	    	Patient obj=null;
 	    	obj=new Patient();
 	    	obj.setPatientid("52562");
 	    	obj.setPatientname("Hetasvi Bhatt");
 	    	obj.setSex("female");
-	    	obj.setContact("289783708200");
-	    	obj.setLastvisit("11/01/2020 11:00 am to 12:00 pm");
-	    	obj.setConsultationfees("500");
-	    	obj.setConsultedto("Dr vyas");
-	    	obj.setDate("12/02/2021");
-	    	obj.setTime("11:00 am to 12:00 pm");
-	    	obj.setConsultationmode("offline consultation");
-	    	obj.setEmrimages("image1.jpg");
-	    	obj.setConcern("fever");
-	    	obj.setPatientuploadeddata("image2.jpg");
-	    	obj.setAllergies("rashes");
-	    	obj.setCurrentmedications("abc");
-	    	obj.setDiseases("fever");
+	    	obj.setAge("23 years");
+	    	obj.setFollowup(followup);
+	    	obj.setEmrgenerated(emr);
+	    	obj.setPatientuploadeddata(patientuploaddata);
 	    	obj.setSurgeries("xyz");
 	    	obj.setWearabledata("abc");
 	    	obj.setPersonalhistory("abc");
 	    	obj.setFamilyhistory("def");
 	    	obj.setSocioeconomicstatus("xyz");
+	    	obj.setAllergies("rashes");
+	    	obj.setDiseases("xyz");
+	    	obj.setSurgeries("abc");
+	    	obj.setContact("1233556657");
 	    	
-	    	Patient obj1=null;
-	    	obj1=new Patient();
-	    	
-	    	obj1.setPatientid("52562");
-	    	obj1.setPatientname("Vikas sharma");
-	    	obj1.setSex("Male");
-	    	obj1.setContact("81236922812");
-	    	obj1.setLastvisit("15/02/2021 1:00 pm to 2:00 pm");
-	    	obj1.setConsultationfees("500");
-	    	obj1.setConsultedto("Dr vyas");
-	    	obj1.setDate("12/02/2021");
-	    	obj1.setTime("11:00 am to 12:00 pm");
-	    	obj1.setConsultationmode("offline consultation");
-	    	obj1.setEmrimages("image1.jpg");
-	    	obj1.setConcern("fever");
-	    	obj1.setPatientuploadeddata("image2.jpg");
-	    	obj1.setAllergies("rashes");
-	    	obj1.setCurrentmedications("abc");
-	    	obj1.setDiseases("fever");
-	    	obj1.setSurgeries("xyz");
-	    	obj1.setWearabledata("abc");
-	    	obj1.setPersonalhistory("abc");
-	    	obj1.setFamilyhistory("def");
-	    	obj1.setSocioeconomicstatus("xyz");
 	    	
 	    	viewpatient.add(obj);
-	    	viewpatient.add(obj1);
 	    	
 	    	patient.setMessage("Success");
 	    	patient.setStatus("200");

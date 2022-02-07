@@ -183,22 +183,37 @@ public class BaseClassApi
 	     {
 	    	CheckPaymentplans plans=new CheckPaymentplans();
 	    	List<Paymentplans> plan=new ArrayList<Paymentplans>();
+	    	List<PaymentPlansFeatures> feature=new ArrayList<PaymentPlansFeatures>();
+	    	
+	    	PaymentPlansFeatures f=new PaymentPlansFeatures();
+	    	f.setFeatureno("1");
+	    	f.setFeaturedescription("Advance Calendar-Manages appointment");
+	    	PaymentPlansFeatures f1=new PaymentPlansFeatures();
+	    	f1.setFeatureno("2");
+	    	f1.setFeaturedescription("Professional billing");
+	    	PaymentPlansFeatures f2=new PaymentPlansFeatures();
+	    	f2.setFeatureno("3");
+	    	f2.setFeaturedescription("Share records with patient");
+	    	feature.add(f);
+	    	feature.add(f1);
+	    	feature.add(f2);
+	    	
 	    	
 	    	Paymentplans obj=null;
 	    	obj=new Paymentplans();
 	    	
 	    	obj.setTitle("Basic plan rs999/month");
-	    	obj.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+ \"2.professional billing\"+ \"3.Unlimited appointment confirmation,reminders and followups\"+ \"4.share records with patients");
 	    	obj.setImage("image2.jpg");
 	    	obj.setButton1("Start your free 30day trial now");
+	    	obj.setDescription(feature);
 	    	
 	    	Paymentplans obj1=null;
 	    	obj1=new Paymentplans();
 	    	
 	    	obj1.setTitle("Business plan rs1499/month");
-	    	obj1.setDescription("your plan includes:1.advanced Calendar-manages appointment\"+\"2.professional billing\"+\"3.Unlimited appointment confirmation,reminders and followups\"+\"4.share records with patients\"+\"5.supports 13local languages\"+\"6.patient education tips and videos\"+\"24/7 helpdesk support");
 	    	obj1.setImage("image2.jpg");
 	    	obj1.setButton1("Start your free 30day trial now");
+	    	obj1.setDescription(feature);
 	    	
 	    	plan.add(obj);
 	    	plan.add(obj1);
@@ -356,6 +371,9 @@ public class BaseClassApi
 		    	obj1.setDate("12 oct 2021");
 		    	obj1.setTime("11:00 am to 12:00 pm");
 		    	obj1.setCharges("3890 rs");
+		    	obj1.setQuantity("0");
+		    	obj1.setUnitcost("0");
+		    	obj1.setDiscount("0");
 		    	obj1.setTotal("Paid");
 		    	
 		    	payment.add(obj);
@@ -378,21 +396,95 @@ public class BaseClassApi
 		    	CheckEMR emrs=new CheckEMR();
 		    	List<EMR> emr=new ArrayList<EMR>();
 		    	
+		    	List<Symptoms> symptoms=new ArrayList<Symptoms>();
+		    	List<Findings> findings=new ArrayList<Findings>();
+		    	List<Diagnosis> diagnosis=new ArrayList<Diagnosis>();
+		    	List<FollowUps> followup=new ArrayList<FollowUps>();
+		    	List<Prescription> prescription=new ArrayList<Prescription>();
+		    	List<EMRGenerated> emrgenerated=new ArrayList<EMRGenerated>();
+		    	List<InvoiceGenerated> invoicegenerated=new ArrayList<InvoiceGenerated>();
+		    	
+		    	Symptoms symptom1=new Symptoms();
+		    	symptom1.setSymptoms("Cough from 3 days,severe");
+		    	Symptoms symptom2=new Symptoms();
+		    	symptom2.setSymptoms("vomiting since 2 days");
+		    	Symptoms symptom3=new Symptoms();
+		    	symptom3.setSymptoms("cant eat properly");
+		    	
+		    	symptoms.add(symptom1);
+		    	symptoms.add(symptom2);
+		    	symptoms.add(symptom3);
+		    	
+		    	Findings finding1=new Findings();
+		    	finding1.setFindings("urine output normal");
+		    	Findings finding2=new Findings();
+		    	finding2.setFindings("red throat");
+		    	
+		    	findings.add(finding1);
+		    	findings.add(finding2);
+		    	
+		    	Diagnosis diagnosis1=new Diagnosis();
+		    	diagnosis1.setDiagnosis("LRTI lower repository tract infection");
+		    	Diagnosis diagnosis2=new Diagnosis();
+		    	diagnosis2.setDiagnosis("viral infection");
+		    	
+		    	diagnosis.add(diagnosis1);
+		    	diagnosis.add(diagnosis2);
+		    	
+		    	FollowUps followup1=new FollowUps();
+		    	followup1.setDate("6th nov 2021");
+		    	followup1.setTime("4pm to 6pm");
+		    	followup1.setMode("online consulation");
+		    	
+		    	FollowUps followup2=new FollowUps();
+		    	followup2.setDate("6th nov 2021");
+		    	followup2.setTime("4pm to 6pm");
+		    	followup2.setMode("online consulation");
+		    	
+		    	followup.add(followup1);
+		    	followup.add(followup2);
+		    	
+		    	Prescription prescription1=new Prescription();
+		    	prescription1.setMedicinename("Domstal");
+		    	prescription1.setTimesaday("3 times a day");
+		    	
+		    	Prescription prescription2=new Prescription();
+		    	prescription2.setMedicinename("Ecosprin");
+		    	prescription2.setTimesaday("4tabs X times a day");
+		    	
+		    	prescription.add(prescription1);
+		    	prescription.add(prescription2);
+		    	
+		    	EMRGenerated emrgenerated1=new EMRGenerated();
+		    	emrgenerated1.setEmr("image1.jpg");
+		    	emrgenerated1.setConsultedto("DR. John dsouza");
+		    	emrgenerated1.setConcern("Headache,fever");
+		    	emrgenerated1.setAppointmentdate("12 oct 2021");
+		    	
+		    	emrgenerated.add(emrgenerated1);
+		    	
+		    	InvoiceGenerated invoicegenerated1=new InvoiceGenerated();
+		    	invoicegenerated1.setInvoice("image1.jpg");
+		    	invoicegenerated1.setGeneratedby("Dr John souza");
+		    	invoicegenerated1.setDate("12 oct 2021");
+		    	invoicegenerated.add(invoicegenerated1);
+		    	
+		    	
 		    	EMR obj=null;
 		    	obj=new EMR();
 		    	obj.setPatientname("Hetasvi Bhatt");
 		    	obj.setConsultedto("Dr viral vyas");
 		    	obj.setGender("Female");
 		    	obj.setAge("23 years");
-		    	obj.setSymptoms("cough");
-		    	obj.setFinding("urine output normal");
-		    	obj.setDiagnosis("viral infection");
+		    	obj.setSymptoms(symptoms);
+		    	obj.setFinding(findings);
+		    	obj.setDiagnosis(diagnosis);
 		    	obj.setInstruction("careful");
-		    	obj.setFollowup("6th nov online consultation 4:00 pm to 6:00 pm");
-		    	obj.setPrescription("domstal 4x3 times a day");
-		    	obj.setEmrgenerated("image1.jpg");
-		    	obj.setInvoicegenerated("image1.jpg");
-		    	
+		    	obj.setFollowup(followup);
+		    	obj.setPrescription(prescription);
+		    	obj.setEmrgenerated(emrgenerated);
+		    	obj.setInvoicegenerated(invoicegenerated);
+		    	obj.setConcern("severe");
 		    	
 		    	EMR obj1=null;
 		    	obj1=new EMR();
@@ -400,14 +492,15 @@ public class BaseClassApi
 		    	obj1.setConsultedto("Dr viral vyas");
 		    	obj1.setGender("Female");
 		    	obj1.setAge("23 years");
-		    	obj1.setSymptoms("cough");
-		    	obj1.setFinding("urine output normal");
-		    	obj1.setDiagnosis("viral infection");
+		    	obj1.setSymptoms(symptoms);
+		    	obj1.setFinding(findings);
+		    	obj1.setDiagnosis(diagnosis);
 		    	obj1.setInstruction("careful");
-		    	obj1.setFollowup("6th nov online consultation 4:00 pm to 6:00 pm");
-		    	obj1.setPrescription("domstal 4x3 times a day");
-		    	obj1.setEmrgenerated("image1.jpg");
-		    	obj1.setInvoicegenerated("image1.jpg");
+		    	obj1.setFollowup(followup);
+		    	obj1.setPrescription(prescription);
+		    	obj1.setEmrgenerated(emrgenerated);
+		    	obj1.setInvoicegenerated(invoicegenerated);
+		    	obj1.setConcern("severe");
 		    	
 		    	emr.add(obj);
 		    	emr.add(obj1);

@@ -1,9 +1,14 @@
 package api.com;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class FAQs 
 {
+	@JsonProperty("Topic")
 	private String topic;
+	@JsonProperty("Question")
 	private String question;
+	@JsonProperty("Answer")
 	private String answer;
 	public String getQuestion() {
 		return question;
