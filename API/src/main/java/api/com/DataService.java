@@ -19,24 +19,8 @@ public class DataService
 	 }
 	 public CheckDoctors doctor(Doctors doctors) 
 	 {
-		 Doctors doctors1=new Doctors();
-		 doctors1.setId("1");
-		 doctors1.setName("Dr Viral Vyas");
-		 doctors1.setRegistrationno("94561902");
-		 doctors1.setPractice("M.D,Physician");
-		 doctors1.setInstitute("Medical Institute");
-		 doctors1.setExperience("12yrs");
-		 doctors1.setQualification("M.B.B.S");
-		 doctors1.setPhone("123456789");
-		 doctors1.setProcurement("2018");
-		 doctors1.setOverview("Doctor with great experience");
-		 doctors1.setStatus("today");
-		 doctors1.setImg("image2.jpg");
-		 doctors1.setOngoingpatient("12+");
-		 doctors1.setTreatedpatient("13+");
-		 doctor.add(doctors1);
-		 String newID=Integer.toString(doctor.size()+1);
-		 doctors.setId(newID);
+		 int newID=doctor.size()+1;
+		 doctors.setDoctorid(newID);
 	 	 CheckDoctors insert=new CheckDoctors();
 	 	 doctor.add(doctors);
 	 	 insert.setData(doctor);
@@ -47,21 +31,75 @@ public class DataService
 
 	  public CheckDoctors getdoctors() 
 	  {
-		     Doctors doctors1=new Doctors();
-			 doctors1.setId("1");
-			 doctors1.setName("Dr Viral Vyas");
-			 doctors1.setRegistrationno("94561902");
-			 doctors1.setPractice("M.D,Physician");
-			 doctors1.setInstitute("Medical Institute");
-			 doctors1.setExperience("12yrs");
-			 doctors1.setQualification("M.B.B.S");
-			 doctors1.setPhone("123456789");
-			 doctors1.setProcurement("2018");
-			 doctors1.setOverview("Doctor with great experience");
-			 doctors1.setStatus("today");
-			 doctors1.setImg("image2.jpg");
-			 doctors1.setOngoingpatient("12+");
-			 doctors1.setTreatedpatient("13+");
+		    List<Degree> degree=new ArrayList<Degree>();
+		    Degree degrees=new Degree();
+		    degrees.setName("M.D Physician");
+		    Degree degrees1=new Degree();
+		    degrees1.setName("MDS Periodotology");
+		    degree.add(degrees1);
+		    degree.add(degrees);
+		    
+		    List<Institute> institute=new ArrayList<Institute>();
+		    Institute institutes=new Institute();
+		    institutes.setName("XYX");
+		    institute.add(institutes);
+		    
+		    List<PassingYear> passingyear=new ArrayList<PassingYear>();
+		    PassingYear year=new PassingYear();
+		    year.setYear(2000);
+		    passingyear.add(year);
+		    
+		    List<Package> packages=new ArrayList<Package>();
+		    Package p1=new Package();
+		    p1.setId(1);
+		    p1.setName("plan of 2000rs");
+		    packages.add(p1);
+		    
+		    List<ClinicId> clinicid=new ArrayList<ClinicId>();
+		    ClinicId clinicids=new ClinicId();
+		    clinicids.setId(0);
+		    clinicid.add(clinicids);
+		  	
+		  	 Doctors doctors1=new Doctors();
+			 doctors1.setDoctorid(1);;
+			 doctors1.setFirstname("Viral");;
+			 doctors1.setMiddlename("Rahul");
+			 doctors1.setLastname("Vyas");
+			 doctors1.setDob("12/02/1995");
+			 doctors1.setGender("Male");
+			 doctors1.setBloodgroup("B+");
+			 doctors1.setProfilpicurl("abc.jpg");
+			 doctors1.setMobile("0978972891");
+			 doctors1.setEmail("abc@gmail.com");
+			 doctors1.setCurrentaddress("xyz");
+			 doctors1.setCurrentcityid(0);
+			 doctors1.setCurrentstateid(0);
+			 doctors1.setCurrentcountryid(0);
+			 doctors1.setPermaddress("xyz");
+			 doctors1.setPermcityid(0);
+			 doctors1.setPermstateid(0);
+			 doctors1.setPermcountryid(0);
+			 doctors1.setCurrentzip("400064");
+			 doctors1.setPermzip("400064");
+			 doctors1.setDegree(degree);
+			 doctors1.setInstitute(institute);
+			 doctors1.setPassingyear(passingyear);
+			 doctors1.setRegistrationno("121");
+			 doctors1.setIdentitytype(0);
+			 doctors1.setIdentitynumber("12");
+			 doctors1.setIdentityproof("asjja");
+			 doctors1.setPackages(packages);
+			 doctors1.setCreateby(0);
+			 doctors1.setCreateipaddress("79.65.1871.12");
+			 doctors1.setUpdateby(0);
+			 doctors1.setUpdatedate("12/02/2021");
+			 doctors1.setUpdateipaddress("12.29.26.10");
+			 doctors1.setIsactive(0);
+			 doctors1.setClinicid(clinicid);
+			 doctors1.setConsultationcharge(0);
+			 doctors1.setSpecialityid(0);
+			 
+			 
 			 doctor.add(doctors1);
 		  	 CheckDoctors insert=new CheckDoctors();
 		     insert.setData(doctor);
@@ -69,11 +107,11 @@ public class DataService
 		 	 insert.setStatus("200");
 			 return insert;
 	  }
-	  public CheckDoctors getdoctorbyid(String id)
+	  public CheckDoctors getdoctorbyid(int id)
 	  {
 	        for (Doctors doctors : doctor) 
 	        {
-	            if (doctors.getId().equals(id)) {
+	            if (doctors.getDoctorid()==id) {
 	            	
 	            	 List<Doctors> getbyid=new ArrayList<Doctors>();
 		             getbyid.add(doctors);

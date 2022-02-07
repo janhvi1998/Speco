@@ -43,7 +43,7 @@ public class BaseClassApi
 	 @GET
 	 @Path("doctor/{doctorid}")
 	 @Produces(MediaType.APPLICATION_JSON)
-	 public Response getdoctor(@PathParam("doctorid") String id) {
+	 public Response getdoctor(@PathParam("doctorid") int id) {
 	        CheckDoctors doctor = dataService.getdoctorbyid(id);
 	        if (doctor == null) {
 	        	 return Response
