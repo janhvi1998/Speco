@@ -79,6 +79,29 @@ paths:
         credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
         type: aws_proxy
         
+    get:
+      description: Doctor elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doctor'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
+        type: aws_proxy
+        
   /doctor/{doctorid}:
     get:
       description: Doctor elements
@@ -591,34 +614,100 @@ components:
           items:
             type: object
             properties:
-              Name:
+              DoctorId:
+                type: integer
+              FirstName:
                 type: string
+              MiddleName:
+                type: string
+              LastName:
+                type: string
+              DOB:
+                type: string
+              Gender:
+                type: string
+              BloodGroup:
+                type: string
+              ProfilePicUrl:
+                type: string
+              Mobile:
+                type: string
+              Email:
+                type: string
+              CurrentAddress:
+                type: string
+              CurrentCityId:
+                type: integer
+              CurrentStateId:
+                type: integer
+              CurrentCountryId:
+                type: integer
+              PermAddress:
+                type: string
+              PermCityId:
+                type: integer
+              PermStateId:
+                type: integer
+              PermCountryId:
+                type: integer
+              CurrentZip:
+                type: string
+              PermZip:
+                type: string
+              Degree:
+                type: array
+                items:
+                  properties:
+                    Degree:
+                      type: string
+              Institute:
+                type: array
+                items:
+                  properties:
+                    Institute:
+                      type: string
               RegistrationNo:
                 type: string
-              Practice:
+              IdentityType:
+                type: integer
+              IdentityNumber: 
                 type: string
-              Institute:
+              IdentityProof:
                 type: string
-              Experience:
+              Package:
+                type: array
+                items:
+                  properties:
+                    Name:
+                      type: string
+                    Id:
+                      type: string
+              CreateBy:
+                type: integer
+              CreateDate:
                 type: string
-              Qualification:
+              CreateIpAddress:
                 type: string
-              Phone:
+              UpdateBy:
+                type: integer
+              UpdateDate:
                 type: string
-              Procurement:
+              UpdateIpAddress:
                 type: string
-              Overview:
-                type: string
-              Status:
-                type: string
-              Image:
-                type: string
-              OngoingPatient:
-                type: string
-              TreatedPatient:
-                type: string
-              Id:
-                type: string
+              IsActive:
+                type: integer
+              ClinicId:
+                type: array
+                items:
+                  properties:
+                    ClinicId:
+                      type: integer
+              ConsultationCharge:
+                type: integer
+              SpecialityId: 
+                type: integer
+                  
+              
     clinic:
       type: object
       properties:
