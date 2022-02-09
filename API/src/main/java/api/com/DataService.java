@@ -31,23 +31,14 @@ public class DataService
 
 	  public CheckDoctors getdoctors() 
 	  {
-		    List<Degree> degree=new ArrayList<Degree>();
-		    Degree degrees=new Degree();
-		    degrees.setName("M.D Physician");
-		    Degree degrees1=new Degree();
-		    degrees1.setName("MDS Periodotology");
-		    degree.add(degrees1);
-		    degree.add(degrees);
+		   
 		    
-		    List<Institute> institute=new ArrayList<Institute>();
-		    Institute institutes=new Institute();
-		    institutes.setName("XYX");
-		    institute.add(institutes);
-		    
-		    List<PassingYear> passingyear=new ArrayList<PassingYear>();
-		    PassingYear year=new PassingYear();
-		    year.setYear(2000);
-		    passingyear.add(year);
+		    List<EducationDetail> educationdetail=new ArrayList<EducationDetail>();
+		    EducationDetail ed=new EducationDetail();
+		    ed.setDegree("MDS Periodotology");
+		    ed.setInstitute("xtz");
+		    ed.setPassingyear("1998");
+		    educationdetail.add(ed);
 		    
 		    List<Package> packages=new ArrayList<Package>();
 		    Package p1=new Package();
@@ -81,9 +72,7 @@ public class DataService
 			 doctors1.setPermcountryid(0);
 			 doctors1.setCurrentzip("400064");
 			 doctors1.setPermzip("400064");
-			 doctors1.setDegree(degree);
-			 doctors1.setInstitute(institute);
-			 doctors1.setPassingyear(passingyear);
+			 doctors1.setEducationdetails(educationdetail);
 			 doctors1.setRegistrationno("121");
 			 doctors1.setIdentitytype(0);
 			 doctors1.setIdentitynumber("12");
@@ -91,10 +80,6 @@ public class DataService
 			 doctors1.setPackages(packages);
 			 doctors1.setCreateby(0);
 			 doctors1.setCreateipaddress("79.65.1871.12");
-			 doctors1.setUpdateby(0);
-			 doctors1.setUpdatedate("12/02/2021");
-			 doctors1.setUpdateipaddress("12.29.26.10");
-			 doctors1.setIsactive(0);
 			 doctors1.setClinicid(clinicid);
 			 doctors1.setConsultationcharge(0);
 			 doctors1.setSpecialityid(0);
@@ -135,6 +120,7 @@ public class DataService
 	        return null;
 	  }
 	  
+	   
 	  public CheckClinic clinic(Clinic clinics)
 	  {
 		 
@@ -202,6 +188,47 @@ public class DataService
 	
 		        return null;
 		 }
+	   
+	   public CheckDoctors UpdateDoctordetails(int id,Doctors docs)
+		 {
+			 for (Doctors doc : doctor) { 
+		            if(doc.getDoctorid()==id) 
+		            {
+		            	 doctor.add(docs);
+			             CheckDoctors insert=new CheckDoctors();
+			   		     insert.setData(doctor);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		     return insert;
+			       }
+			 }
+			return null;
+		 }
+	   
+	   public CheckDoctors GetDeleteDoctors(int id) 
+		 {
+		        for (Doctors doctors : doctor) {
+		            if (doctors.getDoctorid()==id)
+		            {
+						 doctor.remove(doctors);
+						 CheckDoctors insert=new CheckDoctors();
+			   		     insert.setData(doctor);
+			   		 	 insert.setMessage("success");
+			   		 	 insert.setStatus("200");
+			   		     return insert;
+					 }
+		            else
+		            {
+		            	 CheckDoctors insert=new CheckDoctors();
+			   		     insert.setData(null);
+			   		 	 insert.setMessage("No such data in list");
+			   		 	 insert.setStatus("404");
+			   		     return insert;
+		            }
+		        }
+				return null;
+		       
+		    }
 		 public CheckClinic getdeleteclinic(String id) 
 		 {
 		        for (Clinic clinics : clinic) {
@@ -226,37 +253,18 @@ public class DataService
 				return null;
 		       
 		    }
-		 public CheckClinic updateclinicdetails(String id,String clinicname, String registrationno, String location
-				    ,String aadharcardno,String emailid,String qualificationname,String phoneno,String institutename,
-				    String clinictype,String procurementyear,String yearsofpractice,String associatedfacilites,
-				    String clinicregistration,String docname)
+		 public CheckClinic updateclinicdetails(String id,Clinic cds)
 		 {
 			 for (Clinic cd : clinic) { 
 		            if (cd.getId().equals(id)) 
 		            {
-		            	cd.setClinicname(clinicname);
-		            	cd.setRegistrationno(registrationno);
-		            	cd.setLocation(location);
-				        cd.setAadharcard(aadharcardno);
-				        cd.setEmailid(emailid);
-				        cd.setQualificationname(qualificationname);
-				        cd.setPhoneNumber(phoneno);
-				        cd.setInstitutename(institutename);
-				        cd.setClinictype(clinictype);
-				        cd.setProcurementyear(procurementyear);
-				        cd.setYearsofpractice(yearsofpractice);
-				        cd.setAssociatedfacilites(associatedfacilites);
-				        cd.setClinicregistration(clinicregistration);
-				        cd.setDocname(docname);
-				        
-				         List<Clinic> getbyid=new ArrayList<Clinic>();
-			             getbyid.add(cd);
+		            	 clinic.add(cds);
 			             CheckClinic insert=new CheckClinic();
-			   		     insert.setData(getbyid);
+			   		     insert.setData(clinic);
 			   		 	 insert.setMessage("success");
 			   		 	 insert.setStatus("200");
-			   		    return insert;
-			                  }
+			   		     return insert;
+			       }
 			 }
 			return null;
 		 }

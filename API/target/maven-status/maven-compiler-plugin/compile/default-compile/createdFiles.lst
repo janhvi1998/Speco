@@ -9,10 +9,8 @@ api\com\Findings.class
 api\com\Enquiry.class
 api\com\CheckDoctors.class
 api\com\CheckFAQs.class
-api\com\PassingYear.class
 api\com\Paymentplans.class
 api\com\Prescription.class
-api\com\Institute.class
 api\com\Patient.class
 api\com\DataService.class
 api\com\CheckClinic.class
@@ -24,11 +22,11 @@ api\com\BaseClassApi.class
 api\com\CheckEnquiry.class
 api\com\PatientUploadData.class
 api\com\CheckClosedAppointment.class
-api\com\Degree.class
 api\com\ClosedAppointment.class
 api\com\PaymentPlansFeatures.class
 api\com\CheckPatient.class
 api\com\CheckOnboarding.class
+api\com\EducationDetail.class
 api\com\Payment.class
 api\com\Onboarding.class
 api\com\CheckPaymentplans.class

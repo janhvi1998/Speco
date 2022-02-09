@@ -46,12 +46,8 @@ public class Doctors
 	private String currentzip;
 	@JsonProperty("PermZip")
 	private String permzip;
-	@JsonProperty("Degree")
-	private List<Degree> degree;
-	@JsonProperty("Institute")
-	private List<Institute> institute;
-	@JsonProperty("Passingyear")
-	private List<PassingYear> passingyear;
+	@JsonProperty("EducationDetail")
+	private List<EducationDetail> educationdetails;
 	@JsonProperty("RegistrationNo")
 	private String registrationno;
 	@JsonProperty("IdentityType")
@@ -218,21 +214,6 @@ public class Doctors
 		this.permzip = permzip;
 	}
 
-	public List<Degree> getDegree() {
-		return degree;
-	}
-
-	public void setDegree(List<Degree> degree) {
-		this.degree = degree;
-	}
-
-	public List<PassingYear> getPassingyear() {
-		return passingyear;
-	}
-
-	public void setPassingyear(List<PassingYear> passingyear) {
-		this.passingyear = passingyear;
-	}
 
 	public int getIdentitytype() {
 		return identitytype;
@@ -346,14 +327,7 @@ public class Doctors
 		this.currentcountryid = currentcountryid;
 	}
 
-	public List<Institute> getInstitute() {
-		return institute;
-	}
-
-	public void setInstitute(List<Institute> institute) {
-		this.institute = institute;
-	}
-
+	
 	public int getUpdateby() {
 		return updateby;
 	}
@@ -402,6 +376,17 @@ public class Doctors
 		this.firstname = firstname;
 	}
 
+
+
+	public List<EducationDetail> getEducationdetails() {
+		return educationdetails;
+	}
+
+
+
+	public void setEducationdetails(List<EducationDetail> educationdetails) {
+		this.educationdetails = educationdetails;
+	}
 	
 
 }

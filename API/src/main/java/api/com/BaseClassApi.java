@@ -55,6 +55,38 @@ public class BaseClassApi
 	                           .build();
 	        }
 	    }
+	 
+	 @PUT
+     @Path("doctor/{doctorid}")
+     @Produces(MediaType.APPLICATION_JSON)
+     @Consumes(MediaType.APPLICATION_JSON)
+     public Response UpdateDoctorById(@PathParam("doctorid")int id,Doctors doc) {
+         CheckDoctors cur = dataService.getdoctorbyid(id);
+         if (cur == null) {
+             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getdoctorbyid(id))
+                       .build();
+         } else {
+        	 return Response.ok().entity(dataService.UpdateDoctordetails(id, doc)).build();
+         }
+     }
+	 
+	 @DELETE
+     @Path("doctor/{doctorid}")
+     @Produces(MediaType.APPLICATION_JSON)
+     @Consumes(MediaType.APPLICATION_JSON)
+     public Response getdetail(@PathParam("doctorid") int id) {
+         CheckDoctors del = dataService.getdoctorbyid(id);
+         if (del == null) {
+             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getdoctorbyid(id))
+                       .build();
+         } else {
+        	 
+             return Response.ok()
+                            .entity(del)
+                            .build();
+         }
+     }
+     
 	
 	 @GET
 	 @Path("onboarding")
@@ -154,7 +186,7 @@ public class BaseClassApi
 	                       .build();
 	         } else {
 	        	 return Response.ok()
-	                            .entity(dataService.updateclinicdetails(id,cs.getClinicname(),cs.getRegistrationno(),cs.getLocation(),cs.getAadharcard(),cs.getEmailid(),cs.getQualificationname(),cs.getPhoneNumber(),cs.getInstitutename(),cs.getClinictype(),cs.getProcurementyear(),cs.getYearsofpractice(),cs.getAssociatedfacilites(),cs.getClinicregistration(),cs.getDocname()))
+	                            .entity(dataService.updateclinicdetails(id, cs))
 	                            .build();
 	         }
 	     }
