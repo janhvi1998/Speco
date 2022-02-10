@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ClosedAppointment
 {
 	@JsonProperty("PatientId")
-	private String patientid;
+	private int patientid;
 	@JsonProperty("PatientName")
 	private String patientname;
 	@JsonProperty("Condition")
@@ -18,10 +18,10 @@ public class ClosedAppointment
 	private String time;
 	@JsonProperty("Action")
 	private String action;
-	public String getPatientid() {
+	public int getPatientid() {
 		return patientid;
 	}
-	public void setPatientid(String patientid) {
+	public void setPatientid(int patientid) {
 		this.patientid = patientid;
 	}
 	public String getPatientname() {

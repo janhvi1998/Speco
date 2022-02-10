@@ -167,7 +167,7 @@ public class DataService
 			 return insert;
 		}
 	 
-	   public CheckClinic getClinicById(String id)
+	   public CheckClinic getClinicById(int id)
 		 {
 		        for (Clinic register : clinic) {
 		            if (register.getClinicId().equals(id)) 
@@ -234,7 +234,7 @@ public class DataService
 				return null;
 		       
 		    }
-		 public CheckClinic getdeleteclinic(String id) 
+		 public CheckClinic getdeleteclinic(int id) 
 		 {
 		        for (Clinic clinics : clinic) {
 		            if (clinics.getClinicId().equals(id))
@@ -258,7 +258,7 @@ public class DataService
 				return null;
 		       
 		    }
-		 public CheckClinic updateclinicdetails(String id,Clinic cds)
+		 public CheckClinic updateclinicdetails(int id,Clinic cds)
 		 {
 			 for (Clinic cd : clinic) { 
 		            if (cd.getClinicId().equals(id)) 
@@ -335,7 +335,7 @@ public class DataService
 	    	
 	    	ClosedAppointment obj=null;
 	    	obj=new ClosedAppointment();
-	    	obj.setPatientid("52562");
+	    	obj.setPatientid(52562);
 	    	obj.setPatientname("Hetasvi Bhatt");
 	    	obj.setCondition("severe");
 	    	obj.setDescription("consulted 2 days ago");
@@ -346,7 +346,7 @@ public class DataService
 	    	ClosedAppointment obj1=null;
 	    	obj1=new ClosedAppointment();
 	    	
-	    	obj1.setPatientid("52562");
+	    	obj1.setPatientid(52562);
 	    	obj1.setPatientname("Vikas sharma");
 	    	obj1.setDescription("follow up is scheduled on");
 	    	obj1.setDate("01/02/2022");
@@ -366,10 +366,10 @@ public class DataService
 				
 		 }
      	 
-		 public CheckClosedAppointment updateappointmentrequest(String patientid,String patientname,String description, String action,String data,String time)
+		 public CheckClosedAppointment updateappointmentrequest(int patientid,String patientname,String description, String action,String data,String time)
 		 {
 			 for (ClosedAppointment closeappoint : closedappointment) { 
-		            if (closeappoint.getPatientid().equals(patientid)) 
+		            if (closeappoint.getPatientid()==patientid) 
 		            {
 		            	closeappoint.setPatientid(patientid);
 		            	closeappoint.setPatientname(patientname);
@@ -388,10 +388,10 @@ public class DataService
 			 }
 			return null;
 		 }
-		 public CheckClosedAppointment GetClosedAppointmentById(String id)
+		 public CheckClosedAppointment GetClosedAppointmentById(int id)
 		 {
 		        for (ClosedAppointment register : closedappointment) {
-		            if (register.getPatientid().equals(id)) 
+		            if (register.getPatientid()==id) 
 		            {
 		                
 		            	 List<ClosedAppointment> getbyid=new ArrayList<ClosedAppointment>();
@@ -526,21 +526,7 @@ public class DataService
 	    	Patient obj=null;
 	    	obj=new Patient();
 	    	obj.setPatientid("52562");
-	    	obj.setPatientname("Hetasvi Bhatt");
-	    	obj.setSex("female");
-	    	obj.setAge("23 years");
-	    	obj.setFollowup(followup);
-	    	obj.setEmrgenerated(emr);
-	    	obj.setPatientuploadeddata(patientuploaddata);
-	    	obj.setSurgeries("xyz");
-	    	obj.setWearabledata("abc");
-	    	obj.setPersonalhistory("abc");
-	    	obj.setFamilyhistory("def");
-	    	obj.setSocioeconomicstatus("xyz");
-	    	obj.setAllergies("rashes");
-	    	obj.setDiseases("xyz");
-	    	obj.setSurgeries("abc");
-	    	obj.setContact("1233556657");
+	    	
 	    	
 	    	
 	    	viewpatient.add(obj);

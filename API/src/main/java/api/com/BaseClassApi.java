@@ -163,7 +163,7 @@ public class BaseClassApi
 	     @GET
 		 @Path("clinic/{clinicid}")
 		 @Produces(MediaType.APPLICATION_JSON)
-		 public Response getclinicbyid(@PathParam("clinicid") String id) {
+		 public Response getclinicbyid(@PathParam("clinicid") int id) {
 		        CheckClinic clinic = dataService.getClinicById(id);
 		        if (clinic == null) {
 		            return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
@@ -179,7 +179,7 @@ public class BaseClassApi
 	     @Path("clinic/{clinicid}")
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
-	     public Response getCustomer(@PathParam("clinicid") String id,Clinic cs) {
+	     public Response getCustomer(@PathParam("clinicid") int id,Clinic cs) {
 	         CheckClinic cur = dataService.getClinicById(id);
 	         if (cur == null) {
 	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
@@ -195,7 +195,7 @@ public class BaseClassApi
 	     @Path("clinic/{clinicid}")
 	     @Produces(MediaType.APPLICATION_JSON)
 	     @Consumes(MediaType.APPLICATION_JSON)
-	     public Response getdetail(@PathParam("clinicid") String id) {
+	     public Response getdetails(@PathParam("clinicid")int id) {
 	         CheckClinic del = dataService.getdeleteclinic(id);
 	         if (del == null) {
 	             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
@@ -331,7 +331,7 @@ public class BaseClassApi
 		     @Path("closedappointment/{patientid}")
 		     @Produces(MediaType.APPLICATION_JSON)
 		     @Consumes(MediaType.APPLICATION_JSON)
-		     public Response UpdateClosedAppointment(@PathParam("patientid") String id,ClosedAppointment ca) {
+		     public Response UpdateClosedAppointment(@PathParam("patientid") int id,ClosedAppointment ca) {
 		         CheckClosedAppointment cca = dataService.GetClosedAppointmentById(id);
 		         if (cca == null) {
 		             return Response.status(Response.Status.NOT_FOUND).entity(dataService.getClinicById(id))
