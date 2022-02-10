@@ -376,6 +376,15 @@ public class BaseClassApi
 			 }
 	     	 
 	     	 @GET
+			 @Path("patient")
+			 @Produces(MediaType.APPLICATION_JSON)
+			 public Response GetPatient() 
+		     {
+		    	return Response.status(200).entity(dataService.GetPatient()).build();					
+			 }
+	     	 
+	     	 
+	     	 @GET
 			 @Path("payment")
 			 @Produces(MediaType.APPLICATION_JSON)
 			 public CheckPayment GetPaymentResponse() 
