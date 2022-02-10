@@ -13,6 +13,7 @@ public class DataService
 	 private List<CancelledAppointment> cancelledappointment=new ArrayList<CancelledAppointment>();
 	 private List<Symptom> symptom=new ArrayList<Symptom>();
 	 private List<SubSymptom> subsymptom=new ArrayList<SubSymptom>();
+	 private List<Patient> patient=new ArrayList<Patient>();
 	 
 	 private static DataService ourInstance = new DataService();
 	 public static DataService getInstance() 
@@ -489,53 +490,37 @@ public class DataService
 			 }
 			return null;
 		 }
+		 public CheckPatient AddPatient(Patient patients) 
+	     {
+	    	 int newID=patient.size()+1;
+			 patients.setPatientid(newID);
+		 	 CheckPatient insert=new CheckPatient();
+		 	 patient.add(patients);
+		 	 insert.setData(patient);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+		 }
+		 
 		 public CheckPatient GetPatient() 
 	     {
-	    	CheckPatient patient=new CheckPatient();
-	    	List<Patient> viewpatient=new ArrayList<Patient>();
-	    	List<FollowUps> followup=new ArrayList<FollowUps>();
-	    	List<EMRGenerated> emr=new ArrayList<EMRGenerated>();
-	    	List<PatientUploadData> patientuploaddata=new ArrayList<PatientUploadData>();
-	    	
-	    	FollowUps followups=new FollowUps();
-	    	followups.setDate("6th aug");
-	    	followups.setTime("4:00 pm to 6:00 pm");
-	    	followups.setMode("Online consultation");
-	    	followup.add(followups);
-	    	
-	    	EMRGenerated emrs=new EMRGenerated();
-	    	emrs.setEmr("image1.jpg");
-	    	emrs.setConsultedto("Dr john D'souza");
-	    	emrs.setConcern("headache,fever");
-	    	emrs.setAppointmentdate("12 oct 2021");
-	    	EMRGenerated emrs1=new EMRGenerated();
-	    	emrs1.setEmr("image1.jpg");
-	    	emrs1.setConsultedto("Dr john D'souza");
-	    	emrs1.setConcern("headache,fever");
-	    	emrs1.setAppointmentdate("12 oct 2021");
-	    	emr.add(emrs);
-	    	emr.add(emrs1);
-	    	
-	    	PatientUploadData patientuploaddatas=new PatientUploadData();
-	    	patientuploaddatas.setFileuploaded("image2.jpg");
-	    	patientuploaddatas.setConsultedto("Dr vyas");
-	    	patientuploaddatas.setConcern("fever");
-	    	patientuploaddatas.setAppointmentdate("12 oct 2021");
-	    	patientuploaddata.add(patientuploaddatas);
-	    	
-	    	Patient obj=null;
-	    	obj=new Patient();
-	    	obj.setPatientid("52562");
-	    	
-	    	
-	    	
-	    	viewpatient.add(obj);
-	    	
-	    	patient.setMessage("Success");
-	    	patient.setStatus("200");
-	    	patient.setData(viewpatient);
-	    	return patient;
-				
+	    	 int newID=patient.size()+1;
+	    	 Patient patients=new Patient();
+			 patients.setPatientid(newID);
+			 patients.setName("abc");
+			 patients.setGender("xyz");
+			 patients.setBloodgroup("ab+");
+			 patients.setPhone("27637869170");
+			 patients.setAddress("duuj");
+			 patients.setStateid(1);
+			 patients.setCountryid(1);
+			 patients.setCityid(1);
+		 	 CheckPatient insert=new CheckPatient();
+		 	 patient.add(patients);
+		 	 insert.setData(patient);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
 		 }
 		 
 		 public CheckSymptom symptom(Symptom symptoms)

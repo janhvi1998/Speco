@@ -1,13 +1,13 @@
 package api.com;
 
-import java.util.List;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Patient 
 {
 	@JsonProperty("PatientId")
-	private String patientid;
+	private int patientid;
     @JsonProperty("Name")
 	private String name;
     @JsonProperty("EmailId")
@@ -22,7 +22,10 @@ public class Patient
     private String bloodgroup;
     @JsonProperty("StateId")
     private int stateid;
-    
+    @JsonProperty("CityId")
+    private int cityid;
+    @JsonProperty("CountryId")
+    private int countryid;
     
     
 	public String getName() {
@@ -61,10 +64,10 @@ public class Patient
 	public void setBloodgroup(String bloodgroup) {
 		this.bloodgroup = bloodgroup;
 	}
-	public String getPatientid() {
+	public int getPatientid() {
 		return patientid;
 	}
-	public void setPatientid(String patientid) {
+	public void setPatientid(int patientid) {
 		this.patientid = patientid;
 	}
 	public int getStateid() {
@@ -72,6 +75,18 @@ public class Patient
 	}
 	public void setStateid(int stateid) {
 		this.stateid = stateid;
+	}
+	public int getCityid() {
+		return cityid;
+	}
+	public void setCityid(int cityid) {
+		this.cityid = cityid;
+	}
+	public int getCountryid() {
+		return countryid;
+	}
+	public void setCountryid(int countryid) {
+		this.countryid = countryid;
 	}
 
 }

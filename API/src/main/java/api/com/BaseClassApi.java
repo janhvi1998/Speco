@@ -367,12 +367,12 @@ public class BaseClassApi
 		         }
 		     }
 	     	 
-	     	 @GET
+	     	 @POST
 			 @Path("patient")
 			 @Produces(MediaType.APPLICATION_JSON)
-			 public CheckPatient GetPatient() 
+			 public Response AddPatient(Patient patients) 
 		     {
-		    	return dataService.GetPatient();					
+		    	return Response.status(200).entity(dataService.AddPatient(patients)).build();					
 			 }
 	     	 
 	     	 @GET
