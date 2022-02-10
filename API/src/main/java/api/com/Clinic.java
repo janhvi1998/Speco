@@ -2,54 +2,58 @@ package api.com;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Clinic {
-	@JsonProperty("Id")
-    private String id;
+public class Clinic 
+{
+	@JsonProperty("ClinicId")
+    private int clinicid;
+	@JsonProperty("DoctorId")
+	private int doctorid;
 	@JsonProperty("ClinicName")
     private String clinicname;
 	@JsonProperty("RegistrationNo")
     private String registrationno;
-	@JsonProperty("Location")
-    private String location;
-	@JsonProperty("AadharCard")
-    private String aadharcard;
 	@JsonProperty("EmailId")
     private String emailid;
-	@JsonProperty("QualificationName")
-    private String qualificationname;
 	@JsonProperty("PhoneNumber")
     private String phoneNumber;
-	@JsonProperty("InstituteName")
-    private String institutename;
 	@JsonProperty("ClinicType")
     private String clinictype;
-	@JsonProperty("ProcurementYear")
-    private String procurementyear;
 	@JsonProperty("YearOfPractice")
     private String yearsofpractice;
 	@JsonProperty("AssociatedFacilites")
     private String associatedfacilites;
-	@JsonProperty("ClinicRegistration")
-    private String clinicregistration;
-	@JsonProperty("DoctorName")
-    private String docname;
-    
-    
-
+	@JsonProperty("CurrentAddress")
+	private String currentaddress;
+	@JsonProperty("CurrentCityId")
+	private int currentcityid;
+	@JsonProperty("CurrentStateId")
+	private int currentstateid;
+	@JsonProperty("CurrentCountryId")
+	private int currentcountryid;
+	@JsonProperty("PermAddress")
+	private String permaddress;
+	@JsonProperty("PermCityId")
+	private int permcityid;
+	@JsonProperty("PermStateId")
+	private int permstateid;
+	@JsonProperty("PermCountryId")
+	private int permcountryid;
+	@JsonProperty("CurrentZip")
+	private String currentzip;
+	@JsonProperty("PermZip")
+	private String permzip;
+	
     public Clinic() {
     }
 
-    public Clinic(String id) {
-        this.id = id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+   
+    public void setClinicId(int clinicid) {
+        this.clinicid = clinicid;
     }
 
 
-    public String getId() {
-        return id;
+    public Integer getClinicId() {
+        return clinicid;
     }
 
    
@@ -76,23 +80,6 @@ public class Clinic {
 	public void setRegistrationno(String registrationno) {
 		this.registrationno = registrationno;
 	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public String getAadharcard() {
-		return aadharcard;
-	}
-
-	public void setAadharcard(String aadharcard) {
-		this.aadharcard = aadharcard;
-	}
-
 	public String getEmailid() {
 		return emailid;
 	}
@@ -101,21 +88,6 @@ public class Clinic {
 		this.emailid = emailid;
 	}
 
-	public String getQualificationname() {
-		return qualificationname;
-	}
-
-	public void setQualificationname(String qualificationname) {
-		this.qualificationname = qualificationname;
-	}
-
-	public String getInstitutename() {
-		return institutename;
-	}
-
-	public void setInstitutename(String institutename) {
-		this.institutename = institutename;
-	}
 
 	public String getClinictype() {
 		return clinictype;
@@ -125,13 +97,6 @@ public class Clinic {
 		this.clinictype = clinictype;
 	}
 
-	public String getProcurementyear() {
-		return procurementyear;
-	}
-
-	public void setProcurementyear(String procurementyear) {
-		this.procurementyear = procurementyear;
-	}
 
 	public String getYearsofpractice() {
 		return yearsofpractice;
@@ -149,19 +114,95 @@ public class Clinic {
 		this.associatedfacilites = associatedfacilites;
 	}
 
-	public String getClinicregistration() {
-		return clinicregistration;
+	public int getDoctorid() {
+		return doctorid;
 	}
 
-	public void setClinicregistration(String clinicregistration) {
-		this.clinicregistration = clinicregistration;
+	public void setDoctorid(int doctorid) {
+		this.doctorid = doctorid;
+	}
+	public String getCurrentaddress() {
+		return currentaddress;
 	}
 
-	public String getDocname() {
-		return docname;
+	public void setCurrentaddress(String currentaddress) {
+		this.currentaddress = currentaddress;
 	}
 
-	public void setDocname(String docname) {
-		this.docname = docname;
+	public int getCurrentcityid() {
+		return currentcityid;
 	}
+
+	public void setCurrentcityid(int currentcityid) {
+		this.currentcityid = currentcityid;
+	}
+
+	public String getPermaddress() {
+		return permaddress;
+	}
+
+	public void setPermaddress(String permaddress) {
+		this.permaddress = permaddress;
+	}
+
+	public int getPermcityid() {
+		return permcityid;
+	}
+
+	public void setPermcityid(int permcityid) {
+		this.permcityid = permcityid;
+	}
+
+	public int getPermstateid() {
+		return permstateid;
+	}
+
+	public void setPermstateid(int permstateid) {
+		this.permstateid = permstateid;
+	}
+
+	public int getPermcountryid() {
+		return permcountryid;
+	}
+
+	public void setPermcountryid(int permcountryid) {
+		this.permcountryid = permcountryid;
+	}
+
+	public String getCurrentzip() {
+		return currentzip;
+	}
+
+	public void setCurrentzip(String currentzip) {
+		this.currentzip = currentzip;
+	}
+
+	public String getPermzip() {
+		return permzip;
+	}
+
+	public void setPermzip(String permzip) {
+		this.permzip = permzip;
+	}
+
+
+	public int getCurrentstateid() {
+		return currentstateid;
+	}
+
+
+	public void setCurrentstateid(int currentstateid) {
+		this.currentstateid = currentstateid;
+	}
+
+
+	public int getCurrentcountryid() {
+		return currentcountryid;
+	}
+
+
+	public void setCurrentcountryid(int currentcountryid) {
+		this.currentcountryid = currentcountryid;
+	}
+
 }

@@ -11,6 +11,8 @@ public class DataService
 	 private List<Appointment> appointment=new ArrayList<Appointment>();
 	 private List<ClosedAppointment> closedappointment=new ArrayList<ClosedAppointment>();
 	 private List<CancelledAppointment> cancelledappointment=new ArrayList<CancelledAppointment>();
+	 private List<Symptom> symptom=new ArrayList<Symptom>();
+	 private List<SubSymptom> subsymptom=new ArrayList<SubSymptom>();
 	 
 	 private static DataService ourInstance = new DataService();
 	 public static DataService getInstance() 
@@ -123,10 +125,8 @@ public class DataService
 	   
 	  public CheckClinic clinic(Clinic clinics)
 	  {
-		 
-		  	 
-		  	 String newID=Integer.toString(clinic.size()+1);
-			 clinics.setId(newID);
+		  	 int newID=clinic.size()+1;
+			 clinics.setClinicId(newID);
 		 	 CheckClinic insert=new CheckClinic();
 		 	 clinic.add(clinics);
 		 	 insert.setData(clinic);
@@ -139,33 +139,38 @@ public class DataService
 	   public CheckClinic getcliniclist() 
 	   {
 		     Clinic clinic1=new Clinic();
-		  	 clinic1.setId("1");
+		  	 clinic1.setClinicId(1);
+		  	 clinic1.setDoctorid(1);
 		  	 clinic1.setClinicname("shreenathji");
 		  	 clinic1.setRegistrationno("1234");
-		  	 clinic1.setLocation("malad");
-		  	 clinic1.setAadharcard("123456789");
 		  	 clinic1.setEmailid("jinal@gmail.com");
-		  	 clinic1.setQualificationname("MBA");
 		  	 clinic1.setPhoneNumber("1234567890");
-		  	 clinic1.setInstitutename("abc");
 		  	 clinic1.setClinictype("dental");
-		  	 clinic1.setProcurementyear("2020");
 		  	 clinic1.setYearsofpractice("12years");
 		  	 clinic1.setAssociatedfacilites("abx");
-		  	 clinic1.setClinicregistration("link");
-		  	 clinic1.setDocname("abc");
+			  	clinic1.setCurrentaddress("xyz");
+			  	clinic1.setCurrentcityid(0);
+			  	clinic1.setCurrentstateid(0);
+			  	clinic1.setCurrentcountryid(0);
+			  	clinic1.setPermaddress("xyz");
+			 clinic1.setPermcityid(0);
+			 clinic1.setPermstateid(0);
+			 clinic1.setPermcountryid(0);
+			 clinic1.setCurrentzip("400064");
+			 clinic1.setPermzip("400064");
+		  	 
 		  	 clinic.add(clinic1);
 		   	 CheckClinic insert=new CheckClinic();
 		     insert.setData(clinic);
 		 	 insert.setMessage("success");
 		 	 insert.setStatus("200");
 			 return insert;
-	   }
+		}
 	 
 	   public CheckClinic getClinicById(String id)
 		 {
 		        for (Clinic register : clinic) {
-		            if (register.getId().equals(id)) 
+		            if (register.getClinicId().equals(id)) 
 		            {
 		                
 		            	 List<Clinic> getbyid=new ArrayList<Clinic>();
@@ -232,7 +237,7 @@ public class DataService
 		 public CheckClinic getdeleteclinic(String id) 
 		 {
 		        for (Clinic clinics : clinic) {
-		            if (clinics.getId().equals(id))
+		            if (clinics.getClinicId().equals(id))
 		            {
 						 clinic.remove(clinics);
 						 CheckClinic insert=new CheckClinic();
@@ -256,7 +261,7 @@ public class DataService
 		 public CheckClinic updateclinicdetails(String id,Clinic cds)
 		 {
 			 for (Clinic cd : clinic) { 
-		            if (cd.getId().equals(id)) 
+		            if (cd.getClinicId().equals(id)) 
 		            {
 		            	 clinic.add(cds);
 			             CheckClinic insert=new CheckClinic();
@@ -528,5 +533,48 @@ public class DataService
 	    	return patient;
 				
 		 }
+		 
+		 public CheckSymptom symptom(Symptom symptoms)
+		  {
+			 
+			  	 
+			  	 int newID=symptom.size()+1;
+				 symptoms.setSymptomid(newID);
+			 	 CheckSymptom insert=new CheckSymptom();
+			 	 symptom.add(symptoms);
+			 	 insert.setData(symptom);
+			 	 insert.setMessage("success");
+			 	 insert.setStatus("200");
+				 return insert;
+		  }
+		 public CheckSubSymptoms subsymptom(SubSymptom subsymptoms)
+		  { 
+			 int newID=subsymptom.size()+1;
+			 subsymptoms.setSymptomid(newID);
+		 	 CheckSubSymptoms insert=new CheckSubSymptoms();
+		 	 subsymptom.add(subsymptoms);
+		 	 insert.setData(subsymptom);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+		  }
+		 public CheckSubSymptoms getsubsymptoms()
+		 {
+			 int newID=subsymptom.size()+1;
+		  	 List<SubSymptoms> sub=new ArrayList<SubSymptoms>();
+		  	 SubSymptoms subs=new SubSymptoms();
+		  	 subs.setSubsymptomname("avc");
+		  	 sub.add(subs);
+		  	 SubSymptom s=new SubSymptom();
+		  	 s.setSymptomid(newID);
+		  	 s.setSubsymptoms(sub);
+		  	 subsymptom.add(s);
+		 	 CheckSubSymptoms insert=new CheckSubSymptoms();
+		 	 insert.setData(subsymptom);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert; 
+		 }
+		 
      
 }

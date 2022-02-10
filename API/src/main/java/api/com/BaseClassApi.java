@@ -428,7 +428,7 @@ public class BaseClassApi
 		    	CheckEMR emrs=new CheckEMR();
 		    	List<EMR> emr=new ArrayList<EMR>();
 		    	
-		    	List<Symptoms> symptoms=new ArrayList<Symptoms>();
+		    	List<Symptom> symptoms=new ArrayList<Symptom>();
 		    	List<Findings> findings=new ArrayList<Findings>();
 		    	List<Diagnosis> diagnosis=new ArrayList<Diagnosis>();
 		    	List<FollowUps> followup=new ArrayList<FollowUps>();
@@ -436,12 +436,12 @@ public class BaseClassApi
 		    	List<EMRGenerated> emrgenerated=new ArrayList<EMRGenerated>();
 		    	List<InvoiceGenerated> invoicegenerated=new ArrayList<InvoiceGenerated>();
 		    	
-		    	Symptoms symptom1=new Symptoms();
-		    	symptom1.setSymptoms("Cough from 3 days,severe");
-		    	Symptoms symptom2=new Symptoms();
-		    	symptom2.setSymptoms("vomiting since 2 days");
-		    	Symptoms symptom3=new Symptoms();
-		    	symptom3.setSymptoms("cant eat properly");
+		    	Symptom symptom1=new Symptom();
+		    	symptom1.setSymptomname("Cough from 3 days,severe");
+		    	Symptom symptom2=new Symptom();
+		    	symptom2.setSymptomname("vomiting since 2 days");
+		    	Symptom symptom3=new Symptom();
+		    	symptom3.setSymptomname("cant eat properly");
 		    	
 		    	symptoms.add(symptom1);
 		    	symptoms.add(symptom2);
@@ -613,6 +613,31 @@ public class BaseClassApi
 					
 			 }
 
-		    
+	     	@POST
+			@Path("symptoms")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response AddSymptoms(Symptom symptom)
+		 	{
+		    	return Response.status(200).entity(dataService.symptom(symptom)).build();
+		 	}
+	     	
+	     	@POST
+			@Path("subsymptoms")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response AddSubSymptoms(SubSymptom subsymptom)
+		 	{
+		    	return Response.status(200).entity(dataService.subsymptom(subsymptom)).build();
+		 	}
+	     	
+	     	@GET
+			@Path("subsymptoms")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response GetSubSymptoms()
+		 	{
+		    	return Response.status(200).entity(dataService.getsubsymptoms()).build();
+		 	}
 	     
 }

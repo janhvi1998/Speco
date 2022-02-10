@@ -10,11 +10,14 @@ C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Prescription.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Appointment.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Visit.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\PaymentPlansFeatures.java
-C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Symptoms.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckPatient.java
+C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\SubSymptoms.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\ClosedAppointment.java
+C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\SubSymptom.java
+C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckSubSymptoms.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckVisit.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Patient.java
+C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckSymptom.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Diagnosis.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\EducationDetail.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\EMR.java
@@ -34,6 +37,7 @@ C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\FollowUps.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckCancelledAppointment.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckClosedAppointment.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\resource\PingResource.java
+C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Symptom.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\PatientUploadData.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\CheckPaymentplans.java
 C:\Users\Admin\Documents\Speco\API\src\main\java\api\com\Doctors.java

@@ -16,7 +16,7 @@ public class EMR
 	@JsonProperty("Age")
 	private String age;
 	@JsonProperty("Symptoms")
-	private List<Symptoms> symptoms;
+	private List<Symptom> symptoms;
 	@JsonProperty("Findings")
 	private List<Findings> finding;
 	@JsonProperty("Diagnosis")
@@ -57,10 +57,10 @@ public class EMR
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public List<Symptoms> getSymptoms() {
+	public List<Symptom> getSymptoms() {
 		return symptoms;
 	}
-	public void setSymptoms(List<Symptoms> symptoms) {
+	public void setSymptoms(List<Symptom> symptoms) {
 		this.symptoms = symptoms;
 	}
 	public List<Findings> getFinding() {
