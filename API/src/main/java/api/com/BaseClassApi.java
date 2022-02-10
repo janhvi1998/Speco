@@ -33,7 +33,7 @@ public class BaseClassApi
  		return Response.status(200).entity(dataService.doctor(doctor)).build();
  	}
 	
-	 @GET
+	 @GET 
 	 @Path("doctor")
      @Produces(MediaType.APPLICATION_JSON)
      public CheckDoctors getdoctors() {
