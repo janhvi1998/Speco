@@ -296,19 +296,37 @@ public class DataService
 		 
 		 public CheckAppointment GetAppointment() 
 		  {
-			     
-				 Appointment appointments=new Appointment();
-			  	 appointments.setPatientid("123");
-			  	 appointments.setPatientname("Vyas");
-			  	 appointments.setDescription("xyz");
-			  	 appointments.setCondition("severe");
-			  	 appointments.setAction("consult");
-			  	 appointment.add(appointments);
-			  	 CheckAppointment view=new CheckAppointment();
-			     view.setData(appointment);
-			 	 view.setMessage("success");
-			 	 view.setStatus("200");
-				 return view;
+			 List<SubSymptom> sub=new ArrayList<SubSymptom>();
+			 List<SubSymptoms> subs=new ArrayList<SubSymptoms>();
+			 SubSymptoms ss=new SubSymptoms();
+			 ss.setSubsymptomname("fever");
+			 subs.add(ss);
+			 SubSymptom s=new SubSymptom();
+			 s.setSymptomid(1);
+			 s.setSubsymptoms(subs);
+			 sub.add(s);
+			 
+			 Appointment appointments=new Appointment();
+		  	 appointments.setClinicid("1");
+		  	 appointments.setDoctorid("1");
+		  	 appointments.setPatientid("1");
+		  	 appointments.setConsultationid("1");
+		  	 appointments.setDate("12/01/2022");
+		  	 appointments.setTimeslot("13:00 pm");
+		  	 appointments.setAppointmentstatus("pending");
+		  	 appointments.setConsultationstatus("approved");
+		  	 appointments.setConsultationnumber("123");
+		  	 appointments.setSymptoms(sub);
+		  	 appointments.setIntensity("low");
+		  	 appointments.setReportimg("abc.jpg");
+		  	 appointments.setConsultationmode("online");
+		  	 appointments.setDaysofsymptoms("1 week");
+			 appointment.add(appointments);
+		  	 CheckAppointment view=new CheckAppointment();
+		     view.setData(appointment);
+		 	 view.setMessage("success");
+		 	 view.setStatus("200");
+			 return view;
 		  }
 		 
 		 public CheckClosedAppointment GetClosedAppointment() 
