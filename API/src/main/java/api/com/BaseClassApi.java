@@ -1,5 +1,7 @@
 package api.com;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +18,7 @@ import javax.ws.rs.core.Response;
 
 
 
-
-
- @Path("/")
+  @Path("/")
 public class BaseClassApi 
 {
 	private DataService dataService = DataService.getInstance();
@@ -33,7 +33,7 @@ public class BaseClassApi
  		return Response.status(200).entity(dataService.doctor(doctor)).build();
  	}
 	
-	 @GET
+	 @GET 
 	 @Path("doctor")
      @Produces(MediaType.APPLICATION_JSON)
      public CheckDoctors getdoctors() {
