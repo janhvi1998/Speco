@@ -626,9 +626,18 @@ public class BaseClassApi
 			@Path("symptoms")
 		    @Consumes(MediaType.APPLICATION_JSON)
 		 	@Produces(MediaType.APPLICATION_JSON)
-		 	public Response AddSymptoms(Symptom symptom)
+		 	public Response AddSymptoms(Symptom symptoms)
 		 	{
-		    	return Response.status(200).entity(dataService.symptom(symptom)).build();
+		    	return Response.status(200).entity(dataService.addsymptom(symptoms)).build();
+		 	}
+	     	
+	     	@GET
+			@Path("symptoms")
+		    @Consumes(MediaType.APPLICATION_JSON)
+		 	@Produces(MediaType.APPLICATION_JSON)
+		 	public Response GetSymptoms()
+		 	{
+		    	return Response.status(200).entity(dataService.getSymptom()).build();
 		 	}
 	     	
 	     	@POST

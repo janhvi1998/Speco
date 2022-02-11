@@ -31,6 +31,7 @@ api\com\PaymentPlansFeatures.class
 api\com\CheckPatient.class
 api\com\CheckOnboarding.class
 api\com\EducationDetail.class
+api\com\Report.class
 api\com\Payment.class
 api\com\Onboarding.class
 api\com\CheckPaymentplans.class

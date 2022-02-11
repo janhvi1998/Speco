@@ -28,8 +28,8 @@ public class Appointment
 	private List<SubSymptom> symptoms;
 	@JsonProperty("Intensity")
 	private String intensity;
-	@JsonProperty("Report")
-	private String reportimg;
+	@JsonProperty("Reports")
+	private List<Report> reportimg;
 	@JsonProperty("ConsultationMode")
 	private String consultationmode;
 	@JsonProperty("DaysOfSymptoms")
@@ -123,11 +123,11 @@ public class Appointment
 		this.intensity = intensity;
 	}
 
-	public String getReportimg() {
+	public List<Report> getReportimg() {
 		return reportimg;
 	}
 
-	public void setReportimg(String reportimg) {
+	public void setReportimg(List<Report> reportimg) {
 		this.reportimg = reportimg;
 	}
 

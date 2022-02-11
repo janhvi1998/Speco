@@ -1,7 +1,8 @@
 package api.com;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Symptom
+public class Symptom 
 {
 	@JsonProperty("Symptom")
 	private String symptomname;
@@ -24,6 +25,5 @@ public class Symptom
 	public void setSymptomid(int symptomid) {
 		this.symptomid = symptomid;
 	}
-	
 	
 }

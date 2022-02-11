@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Clinic 
 {
 	@JsonProperty("ClinicId")
-    private int clinicid;
+	private int clinicid;
 	@JsonProperty("DoctorId")
 	private int doctorid;
 	@JsonProperty("ClinicName")
@@ -28,7 +28,7 @@ public class Clinic
 	private int currentcityid;
 	@JsonProperty("CurrentStateId")
 	private int currentstateid;
-	@JsonProperty("CurrentCountryId")
+	@JsonProperty("CurrentCountryId")	
 	private int currentcountryid;
 	@JsonProperty("PermAddress")
 	private String permaddress;
@@ -47,14 +47,7 @@ public class Clinic
     }
 
    
-    public void setClinicId(int clinicid) {
-        this.clinicid = clinicid;
-    }
-
-
-    public Integer getClinicId() {
-        return clinicid;
-    }
+   
 
    
     public String getPhoneNumber() {
@@ -203,6 +196,22 @@ public class Clinic
 
 	public void setCurrentcountryid(int currentcountryid) {
 		this.currentcountryid = currentcountryid;
+	}
+
+
+
+
+
+	public int getClinicid() {
+		return clinicid;
+	}
+
+
+
+
+
+	public void setClinicid(int clinicid) {
+		this.clinicid = clinicid;
 	}
 
 }

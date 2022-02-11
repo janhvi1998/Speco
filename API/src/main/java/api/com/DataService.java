@@ -127,7 +127,7 @@ public class DataService
 	  public CheckClinic clinic(Clinic clinics)
 	  {
 		  	 int newID=clinic.size()+1;
-			 clinics.setClinicId(newID);
+			 clinics.setClinicid(newID);
 		 	 CheckClinic insert=new CheckClinic();
 		 	 clinic.add(clinics);
 		 	 insert.setData(clinic);
@@ -140,7 +140,7 @@ public class DataService
 	   public CheckClinic getcliniclist() 
 	   {
 		     Clinic clinic1=new Clinic();
-		  	 clinic1.setClinicId(1);
+		  	 clinic1.setClinicid(1);
 		  	 clinic1.setDoctorid(1);
 		  	 clinic1.setClinicname("shreenathji");
 		  	 clinic1.setRegistrationno("1234");
@@ -171,7 +171,7 @@ public class DataService
 	   public CheckClinic getClinicById(int id)
 		 {
 		        for (Clinic register : clinic) {
-		            if (register.getClinicId().equals(id)) 
+		            if (register.getClinicid()==id) 
 		            {
 		                
 		            	 List<Clinic> getbyid=new ArrayList<Clinic>();
@@ -238,7 +238,7 @@ public class DataService
 		 public CheckClinic getdeleteclinic(int id) 
 		 {
 		        for (Clinic clinics : clinic) {
-		            if (clinics.getClinicId().equals(id))
+		            if (clinics.getClinicid()==id)
 		            {
 						 clinic.remove(clinics);
 						 CheckClinic insert=new CheckClinic();
@@ -262,7 +262,7 @@ public class DataService
 		 public CheckClinic updateclinicdetails(int id,Clinic cds)
 		 {
 			 for (Clinic cd : clinic) { 
-		            if (cd.getClinicId().equals(id)) 
+		            if (cd.getClinicid()==id) 
 		            {
 		            	 clinic.add(cds);
 			             CheckClinic insert=new CheckClinic();
@@ -299,6 +299,7 @@ public class DataService
 		  {
 			 List<SubSymptom> sub=new ArrayList<SubSymptom>();
 			 List<SubSymptoms> subs=new ArrayList<SubSymptoms>();
+			 List<Report> rs=new ArrayList<Report>();
 			 SubSymptoms ss=new SubSymptoms();
 			 ss.setSubsymptomname("fever");
 			 subs.add(ss);
@@ -306,6 +307,10 @@ public class DataService
 			 s.setSymptomid(1);
 			 s.setSubsymptoms(subs);
 			 sub.add(s);
+			 
+			 Report r=new Report();
+			 r.setReportimgurl("abc.jpg");
+			 rs.add(r);
 			 
 			 Appointment appointments=new Appointment();
 		  	 appointments.setClinicid("1");
@@ -319,7 +324,7 @@ public class DataService
 		  	 appointments.setConsultationnumber("123");
 		  	 appointments.setSymptoms(sub);
 		  	 appointments.setIntensity("low");
-		  	 appointments.setReportimg("abc.jpg");
+		  	 appointments.setReportimg(rs);
 		  	 appointments.setConsultationmode("online");
 		  	 appointments.setDaysofsymptoms("1 week");
 			 appointment.add(appointments);
@@ -512,6 +517,7 @@ public class DataService
 			 patients.setBloodgroup("ab+");
 			 patients.setPhone("27637869170");
 			 patients.setAddress("duuj");
+			 patients.setEmailid("abc@gmail.com");
 			 patients.setStateid(1);
 			 patients.setCountryid(1);
 			 patients.setCityid(1);
@@ -523,19 +529,32 @@ public class DataService
 			 return insert;
 		 }
 		 
-		 public CheckSymptom symptom(Symptom symptoms)
+		 public CheckSymptom addsymptom(Symptom symptoms)
 		  {
 			 
-			  	 
-			  	 int newID=symptom.size()+1;
-				 symptoms.setSymptomid(newID);
-			 	 CheckSymptom insert=new CheckSymptom();
-			 	 symptom.add(symptoms);
-			 	 insert.setData(symptom);
-			 	 insert.setMessage("success");
-			 	 insert.setStatus("200");
-				 return insert;
+			 int newID=symptom.size()+1;
+			 symptoms.setSymptomid(newID);
+		 	 CheckSymptom insert=new CheckSymptom();
+		 	 symptom.add(symptoms);
+		 	 insert.setData(symptom);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
 		  }
+		 
+		 public CheckSymptom getSymptom()
+		 {
+			 Symptom s=new Symptom();
+			 s.setSymptomid(1);
+			 s.setSymptomname("fever");
+			 symptom.add(s);
+			 CheckSymptom insert=new CheckSymptom();
+		 	 insert.setData(symptom);
+		 	 insert.setMessage("success");
+		 	 insert.setStatus("200");
+			 return insert;
+		 }
+		 
 		 public CheckSubSymptoms subsymptom(SubSymptom subsymptoms)
 		  { 
 			 int newID=subsymptom.size()+1;
