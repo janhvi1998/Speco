@@ -236,7 +236,6 @@ public class BaseClassApi
 	    	
 	    	obj.setTitle("Basic plan rs999/month");
 	    	obj.setImage("image2.jpg");
-	    	obj.setButton1("Start your free 30day trial now");
 	    	obj.setDescription(feature);
 	    	
 	    	Paymentplans obj1=null;
@@ -244,7 +243,6 @@ public class BaseClassApi
 	    	
 	    	obj1.setTitle("Business plan rs1499/month");
 	    	obj1.setImage("image2.jpg");
-	    	obj1.setButton1("Start your free 30day trial now");
 	    	obj1.setDescription(feature);
 	    	
 	    	plan.add(obj);
