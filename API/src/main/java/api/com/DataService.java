@@ -524,7 +524,7 @@ public class DataService
 			 patients.setStateid(1);
 			 patients.setCountryid(1);
 			 patients.setCityid(1);
-			 patients.setZipcode(400064);
+			 patients.setzipcode(40064);
 		 	 CheckPatient insert=new CheckPatient();
 		 	 patient.add(patients);
 		 	 insert.setData(patient);
