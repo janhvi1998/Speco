@@ -53,9 +53,11 @@ public class DataService
 		    ClinicId clinicids=new ClinicId();
 		    clinicids.setId(0);
 		    clinicid.add(clinicids);
+		    
+		    int newID=doctor.size()+1;
 		  	
 		  	 Doctors doctors1=new Doctors();
-			 doctors1.setDoctorid(1);;
+			 doctors1.setDoctorid(newID);
 			 doctors1.setFirstname("Viral");;
 			 doctors1.setMiddlename("Rahul");
 			 doctors1.setLastname("Vyas");
@@ -139,8 +141,9 @@ public class DataService
 	  
 	   public CheckClinic getcliniclist() 
 	   {
+		   	 int newID=clinic.size()+1;  
 		     Clinic clinic1=new Clinic();
-		  	 clinic1.setClinicid(1);
+		  	 clinic1.setClinicid(newID);
 		  	 clinic1.setDoctorid(1);
 		  	 clinic1.setClinicname("shreenathji");
 		  	 clinic1.setRegistrationno("1234");
@@ -544,8 +547,9 @@ public class DataService
 		 
 		 public CheckSymptom getSymptom()
 		 {
+			 int newID=symptom.size()+1;
 			 Symptom s=new Symptom();
-			 s.setSymptomid(1);
+			 s.setSymptomid(newID);
 			 s.setSymptomname("fever");
 			 symptom.add(s);
 			 CheckSymptom insert=new CheckSymptom();
