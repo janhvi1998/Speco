@@ -26,6 +26,8 @@ public class Patient
     private int cityid;
     @JsonProperty("CountryId")
     private int countryid;
+    @JsonProperty("ZipCode")
+    private int zipcode;
     
     
 	public String getName() {
@@ -87,6 +89,12 @@ public class Patient
 	}
 	public void setCountryid(int countryid) {
 		this.countryid = countryid;
+	}
+	public int getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
 	}
 
 }

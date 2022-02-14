@@ -8,7 +8,7 @@ public class Enquiry
 	private String emailid;
 	@JsonProperty("Name")
 	private String name;
-	@JsonProperty("Enquiry For")
+	@JsonProperty("EnquiryFor")
 	private String enquiry;
 	public String getEmailid() {
 		return emailid;
