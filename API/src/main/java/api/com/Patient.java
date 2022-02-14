@@ -90,10 +90,10 @@ public class Patient
 	public void setCountryid(int countryid) {
 		this.countryid = countryid;
 	}
-	public int getZipcode() {
+	public int getzipcode() {
 		return zipcode;
 	}
-	public void setZipcode(int zipcode) {
+	public void setzipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
 
