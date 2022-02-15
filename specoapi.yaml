@@ -545,6 +545,30 @@ paths:
         httpMethod: POST
         credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
         type: aws_proxy
+        
+        
+    post:
+      description: patient elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patient'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
+        type: aws_proxy
   
   /payment:
     get:
@@ -618,6 +642,54 @@ paths:
         credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
         type: aws_proxy
         
+  /symptom:
+   post:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/symptom'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
+        type: aws_proxy
+        
+  /subsymptoms:
+   post:
+      description: appointment elements
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subsymptom'
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errormodel'
+      x-amazon-apigateway-integration:
+        uri: 
+          arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:408647264438:function:Speco_Api/invocations
+        passthroughBehavior: when_no_match
+        httpMethod: POST
+        credentials: "arn:aws:iam::408647264438:role/lambdaccessrole"
+        type: aws_proxy
+        
 components:
   schemas:
     onboarding:
@@ -653,11 +725,17 @@ components:
               Title:
                 type: string
               Description:
-                type: string
+                type: array
+                items:
+                  type: object
+                  properties:
+                    FeatureNo: 
+                      type: string
+                    FeatureDescription:
+                      type: string
               Image:
                 type: string
-              Button:
-                type: string
+                    
     doctor:
       type: object
       properties:
@@ -775,36 +853,43 @@ components:
           items:
             type: object
             properties:
+              DoctorId:
+                type: string
               ClinicName:
                 type: string
               RegistrationNo:
                 type: string
-              Location:
-                type: string
-              AadharCard:
-                type: string
               EmailId:
-                type: string
-              QualificationName:
                 type: string
               PhoneNumber:
                 type: string
-              InstituteName:
-                type: string
               ClinicType:
-                type: string
-              ProcurementYear:
                 type: string
               YearOfPractice:
                 type: string
               AssociatedFacilities:
                 type: string
-              ClinicRegistration:
+              CurrentAddress:
                 type: string
-              DoctorName:
+              CurrentCityId:
                 type: string
-              Id:
+              CurrentStateId:
                 type: string
+              CurrentCountryId:
+                type: string
+              PermAddress:
+                type: string
+              PermCityId:
+                type: string
+              PermStateId:
+                type: string
+              PermCountryId:
+                type: string
+              CurrentZip:
+                type: string
+                
+              
+              
     FAQs:
       type: object
       properties:
@@ -853,16 +938,50 @@ components:
           items:
             type: object
             properties:
+              ClinicId:
+                type: string
+              DoctorId:
+                type: string
               PatientId:
                 type: string
-              PatientName:
+              Date:
                 type: string
-              Condition:
+              TimeSlot:
                 type: string
-              Description:
+              AppointmentStatus:
                 type: string
-              Action:
+              ConsultationStatus:
                 type: string
+              ConsultationNumber:
+                type: string
+              Symptoms:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    SymptomId:
+                      type: string
+              Subsymptoms:
+                type: array
+                items:
+                   type: object
+                   properties:
+                      SubSymptomName:
+                        type: string
+              Intensity:
+                type: string
+              Reports:
+                type: array
+                items:
+                  type: object
+                  properties:
+                     ReportsImgUrl:
+                        type: string
+              ConsultationMode:
+                type: string
+              DaysOfSymptoms:
+                type: string
+                
     closedappointment:
       type: object
       properties:
@@ -922,40 +1041,26 @@ components:
             properties:
               PatientId:
                 type: string
-              PatientName:
+              Name: 
                 type: string
-              Sex:
-                type: string
-              LastVisit:
-                type: string
-              Contact:
-                type: string
-              ConsultationFees:
-                type: string
-              ConsultedTo:
-                type: string
-              EMR:
-                type: string
-              PatientUploadedData:
-                type: string
-              Allergies:
-                type: string
-              CurrentMedications:
-                type: string
-              Diseases:
-                type: string
-              Surgeries:
-                type: string
-              WearableData:
-                type: string
-              PersonalHistory:
-                type: string
-              FamilyHistory:
-                type: string
-              SocioEconomicStatus:
-                type: string
-              Concern:
-                type: string
+              EmailId:
+                 type: string
+              Gender:
+                 type: string
+              Address:
+                 type: string
+              Phone:
+                 type: string
+              BloodGroup:
+                 type: string
+              StateId:
+                 type: string
+              CityId:
+                 type: string
+              CountryId:
+                 type: string
+              ZipCode:
+                 type: string
               
     payment:
       type: object
@@ -1082,8 +1187,43 @@ components:
               Invoices:
                 type: string
                         
-              
+    
+    symptom:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+             Symptom:
+               type: string
+             SymptomId:
+               type: string
             
+            
+    subsymptom:
+      type: object
+      properties:
+        message:
+          type: string
+        status: 
+          type: string
+        data: 
+          type: array
+          items:
+            type: object
+            properties:
+              SymptomId: 
+                type: string
+        SubSymptomName:
+          type: string
+        
+               
     errormodel:
       type: object
       required:
