@@ -614,100 +614,34 @@ components:
           items:
             type: object
             properties:
-              DoctorId:
-                type: integer
-              FirstName:
+              Name:
                 type: string
-              MiddleName:
-                type: string
-              LastName:
-                type: string
-              DOB:
-                type: string
-              Gender:
-                type: string
-              BloodGroup:
-                type: string
-              ProfilePicUrl:
-                type: string
-              Mobile:
-                type: string
-              Email:
-                type: string
-              CurrentAddress:
-                type: string
-              CurrentCityId:
-                type: integer
-              CurrentStateId:
-                type: integer
-              CurrentCountryId:
-                type: integer
-              PermAddress:
-                type: string
-              PermCityId:
-                type: integer
-              PermStateId:
-                type: integer
-              PermCountryId:
-                type: integer
-              CurrentZip:
-                type: string
-              PermZip:
-                type: string
-              Degree:
-                type: array
-                items:
-                  properties:
-                    Degree:
-                      type: string
-              Institute:
-                type: array
-                items:
-                  properties:
-                    Institute:
-                      type: string
               RegistrationNo:
                 type: string
-              IdentityType:
-                type: integer
-              IdentityNumber: 
+              Practice:
                 type: string
-              IdentityProof:
+              Institute:
                 type: string
-              Package:
-                type: array
-                items:
-                  properties:
-                    Name:
-                      type: string
-                    Id:
-                      type: string
-              CreateBy:
-                type: integer
-              CreateDate:
+              Experience:
                 type: string
-              CreateIpAddress:
+              Qualification:
                 type: string
-              UpdateBy:
-                type: integer
-              UpdateDate:
+              Phone:
                 type: string
-              UpdateIpAddress:
+              Procurement:
                 type: string
-              IsActive:
-                type: integer
-              ClinicId:
-                type: array
-                items:
-                  properties:
-                    ClinicId:
-                      type: integer
-              ConsultationCharge:
-                type: integer
-              SpecialityId: 
-                type: integer
-                  
-              
+              Overview:
+                type: string
+              Status:
+                type: string
+              Image:
+                type: string
+              OngoingPatient:
+                type: string
+              TreatedPatient:
+                type: string
+              Id:
+                type: string
     clinic:
       type: object
       properties:
